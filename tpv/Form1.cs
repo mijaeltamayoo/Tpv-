@@ -26,6 +26,7 @@ namespace tpv
                 {
                     adminform adminForm = new adminform();
                     adminForm.Show();
+                    
                 }
                 else if (tipo == "usuario")
                 {
@@ -39,6 +40,6 @@ namespace tpv
             }
         }
 
-
+        
     }
 }

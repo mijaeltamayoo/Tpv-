@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
 
@@ -10,7 +11,8 @@ namespace tpv
 
         public Conexion()
         {
-            con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\\Users\\2dam3\\source\\repos\\tpv\\tpv\\database\\database_tpv.accdb;");
+            //12
+            con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.16.0; Data Source=C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\database\\database_tpv.accdb;");
         }
 
         public void AbrirConexion()
@@ -18,14 +20,6 @@ namespace tpv
             if (con.State == System.Data.ConnectionState.Closed)
             {
                 con.Open();
-            }
-        }
-
-        public void CerrarConexion()
-        {
-            if (con.State == System.Data.ConnectionState.Open)
-            {
-                con.Close();
             }
         }
 
@@ -58,12 +52,32 @@ namespace tpv
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-            finally
-            {
-                CerrarConexion();
-            }
+
 
             return tipo;
         }
+
+        public DataTable ObtenerProductos()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                AbrirConexion();
+                string query = "SELECT * FROM productos"; 
+
+                using (OleDbDataAdapter da = new OleDbDataAdapter(query, con))
+                {
+                    da.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+            return dt;
+        }
+
     }
 }
