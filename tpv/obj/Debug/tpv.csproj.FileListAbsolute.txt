@@ -8,3 +8,4 @@ C:\Users\2dam3\source\repos\tpv\tpv\obj\Debug\tpv.csproj.GenerateResource.cache
 C:\Users\2dam3\source\repos\tpv\tpv\obj\Debug\tpv.csproj.CoreCompileInputs.cache
 C:\Users\2dam3\source\repos\tpv\tpv\obj\Debug\tpv.exe
 C:\Users\2dam3\source\repos\tpv\tpv\obj\Debug\tpv.pdb
+C:\Users\2dam3\source\repos\tpv\tpv\obj\Debug\tpv.adminform.resources
