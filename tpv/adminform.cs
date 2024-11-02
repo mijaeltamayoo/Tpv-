@@ -1,81 +1,102 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace tpv
 {
     public partial class adminform : Form
     {
+
         private Conexion conexion;
+        private ImageList imageListProductos;
+        private ImageList imageListCategorias; // Nueva ImageList para categorías
+
         public adminform()
         {
             InitializeComponent();
             conexion = new Conexion();
-            CargarProductos();
+            imageListProductos = new ImageList();
+            imageListCategorias = new ImageList(); // Inicializa la ImageList para categorías
+            imageListCategorias.ImageSize = new Size(50, 40); // Ajusta el tamaño de la imagen
+            listView1.LargeImageList = imageListCategorias; // Asocia la ImageList con listView1
+            listView2.LargeImageList = imageListProductos; // Asocia la ImageList con listView2
             CargarCategorias();
-        }
-
-        private void CargarProductos()
-        {
-            DataTable productos = conexion.ObtenerProductos();
-            dataGridView2.DataSource = productos; // Asignar el DataTable al DataGridView
-
-            dataGridView2.Columns["id"].Visible = false;
-            dataGridView2.Columns["nombre"].Visible = true;
-            dataGridView2.Columns["precio"].Visible = true;
-            dataGridView2.Columns["stock"].Visible = true;
-            dataGridView2.Columns["categoria_id"].Visible = false;
-            dataGridView2.Columns["imagen"].Visible = false;
-
         }
 
         private void CargarCategorias()
         {
-            DataTable categorias = conexion.ObtenerCategorias(); // Obtener las categorías desde la base de datos
-
+            DataTable categorias = conexion.ObtenerCategorias();
             listView1.Items.Clear();
-            ImageList imageList = new ImageList();
-            imageList.ImageSize = new Size(100, 100); // Ajusta el tamaño según lo necesites
-            listView1.LargeImageList = imageList;
-
-            // Obtener la ruta de la carpeta de imágenes desde la base de datos de la aplicación
-            string basePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", "categorias");
+            imageListCategorias.Images.Clear(); // Limpia las imágenes previas
 
             foreach (DataRow row in categorias.Rows)
             {
-                string nombre = row["nombre"].ToString();
-                string rutaImagen = Path.Combine(basePath, row["imagen"].ToString());
+                string nombreCategoria = row["nombre"].ToString();
+                string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", "categorias", row["imagen"].ToString());
 
-                // Imprimir en la consola o mostrar en un MessageBox para depuración
-                Console.WriteLine($"Buscando imagen en: {rutaImagen}"); // O usa MessageBox para verificar
-                if (File.Exists(rutaImagen))
+                // Verifica si la imagen de la categoría existe
+                if (File.Exists(imagePath))
                 {
-                    imageList.Images.Add(row["imagen"].ToString(), Image.FromFile(rutaImagen));
-
-                    ListViewItem item = new ListViewItem(nombre)
-                    {
-                        ImageKey = row["imagen"].ToString() // Usar el nombre del archivo como clave de imagen
-                    };
-
-                    listView1.Items.Add(item);
+                    imageListCategorias.Images.Add(nombreCategoria, Image.FromFile(imagePath));
                 }
-                else
+
+
+                ListViewItem item = new ListViewItem(nombreCategoria)
                 {
-                    MessageBox.Show($"No se encontró la imagen: {rutaImagen}");
-                }
+                    ImageKey = nombreCategoria, // Usa el nombre como clave para la imagen
+                    Tag = row["id"].ToString() // Guarda el ID de la categoría en el Tag
+                };
+
+                listView1.Items.Add(item);
+            }
+
+            // Evento de selección de categoría
+            listView1.SelectedIndexChanged += ListViewCategorias_SelectedIndexChanged;
+        }
+
+        private void ListViewCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                string categoriaId = listView1.SelectedItems[0].Tag.ToString();
+                CargarProductosPorCategoria(categoriaId);
             }
         }
 
+        private void CargarProductosPorCategoria(string categoriaId)
+        {
+            DataTable productos = conexion.ObtenerProductosPorCategoria(categoriaId);
+            listView2.Items.Clear();
+            imageListProductos.Images.Clear(); // Limpia las imágenes previas
 
+            foreach (DataRow row in productos.Rows)
+            {
+                string nombreProducto = row["nombre"].ToString();
+                string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", "productos", row["imagen"].ToString()); // Ajustar ruta para productos
 
+                Console.WriteLine($"Cargando imagen del producto: {imagePath}"); // Mensaje de depuración
 
+                // Verificar si la imagen del producto existe
+                if (File.Exists(imagePath))
+                {
+                    imageListProductos.Images.Add(nombreProducto, Image.FromFile(imagePath));
+                }
+                else
+                {
+                    MessageBox.Show($"Imagen no encontrada para el producto: {imagePath}"); // Mensaje de depuración
+                    imageListProductos.Images.Add(nombreProducto, Properties.Resources.box2); // Imagen predeterminada para productos
+                }
 
+                ListViewItem item = new ListViewItem(nombreProducto)
+                {
+                    ImageKey = nombreProducto,
+                    Tag = row
+                };
+
+                listView2.Items.Add(item);
+            }
+        }
     }
 }

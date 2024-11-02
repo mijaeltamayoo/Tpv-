@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -14,8 +15,12 @@ namespace tpv
 
         public Conexion()
         {
+            string basePath = AppDomain.CurrentDomain.BaseDirectory; // Obtiene la ruta base del proyecto
+            string relativePath = Path.Combine(basePath, "database", "database_tpv.accdb"); // Ruta relativa a la base de datos
+            con = new OleDbConnection($"Provider=Microsoft.ACE.OLEDB.16.0; Data Source={relativePath};");
             //12
-            con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.16.0; Data Source=C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\database\\database_tpv.accdb;");
+            //C:\Users\mijae\Source\Repos\Tpv-\tpv\database\
+            //con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.16.0; Data Source=C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\database\\database_tpv.accdb;");
         }
 
         public void AbrirConexion()
@@ -104,6 +109,26 @@ namespace tpv
 
             return dt;
         }
+
+        public DataTable ObtenerProductosPorCategoria(string categoriaId)
+        {
+            // Método para obtener productos por categoría
+            DataTable productos = new DataTable();
+            string query = "SELECT id, nombre, precio, stock, categoria_id, imagen FROM Productos WHERE categoria_id = @categoriaId";
+
+            using (OleDbCommand command = new OleDbCommand(query, con))
+            {
+                command.Parameters.AddWithValue("@categoriaId", categoriaId);
+
+                using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
+                {
+                    adapter.Fill(productos);
+                }
+            }
+
+            return productos;
+        }
+
 
 
 

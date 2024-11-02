@@ -22,8 +22,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>true</Prefer32Bit>
-    <PreferNativeArm64>false</PreferNativeArm64>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PreferNativeArm64>true</PreferNativeArm64>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -79,6 +79,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="database\database_tpv.laccdb" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -106,6 +107,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="database\database_tpv.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="images\categorias\bebidas.png" />
     <Content Include="images\categorias\entrantes.jpg" />
     <Content Include="images\categorias\hamburguesa.jpg" />
