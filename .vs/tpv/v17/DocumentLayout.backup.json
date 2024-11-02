@@ -1,33 +1,32 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\mijae\\source\\repos\\Tpv-\\",
+  "WorkspaceRootPath": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\",
   "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|c:\\users\\mijae\\source\\repos\\tpv-\\tpv\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\adminform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\adminform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|tpv||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|c:\\users\\mijae\\source\\repos\\tpv-\\tpv\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|c:\\users\\2dam3\\source\\repos\\tpv-\\tpv\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\adminform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|c:\\users\\2dam3\\source\\repos\\tpv-\\tpv\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|a54ad834-9219-4aa6-b589-607af21c3e26"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,16 +36,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "tpv",
-              "DocumentMoniker": "C:\\Users\\mijae\\Source\\Repos\\Tpv-\\tpv\\tpv.csproj",
+              "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\tpv.csproj",
               "RelativeDocumentMoniker": "tpv\\tpv.csproj",
-              "ToolTip": "C:\\Users\\mijae\\Source\\Repos\\Tpv-\\tpv\\tpv.csproj",
-              "RelativeToolTip": "tpv\\tpv.csproj",
+              "ToolTip": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\tpv.csproj*",
+              "RelativeToolTip": "tpv\\tpv.csproj*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-11-01T12:12:53.816Z",
               "IsPinned": true,
@@ -54,12 +53,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "adminform.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\adminform.cs",
+              "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminform.cs",
               "RelativeDocumentMoniker": "tpv\\adminform.cs",
-              "ToolTip": "C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\adminform.cs [Dise\u00F1o]*",
-              "RelativeToolTip": "tpv\\adminform.cs [Dise\u00F1o]*",
+              "ToolTip": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminform.cs [Dise\u00F1o]",
+              "RelativeToolTip": "tpv\\adminform.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-30T16:32:30.914Z",
               "IsPinned": true,
@@ -67,27 +66,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\Form1.cs",
               "RelativeDocumentMoniker": "tpv\\Form1.cs",
-              "ToolTip": "C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\Form1.cs",
+              "ToolTip": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\Form1.cs",
               "RelativeToolTip": "tpv\\Form1.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAA1wBwAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-01T13:06:05.469Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "adminform.cs",
-              "DocumentMoniker": "C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\adminform.cs",
+              "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminform.cs",
               "RelativeDocumentMoniker": "tpv\\adminform.cs",
-              "ToolTip": "C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\adminform.cs*",
-              "RelativeToolTip": "tpv\\adminform.cs*",
-              "ViewState": "AgIAAAgAAAAAAAAAAAA6wBQAAAA7AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminform.cs",
+              "RelativeToolTip": "tpv\\adminform.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAnwGQAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-30T17:18:33.188Z",
               "IsPinned": true,
@@ -95,11 +93,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "adminform.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\mijae\\Source\\Repos\\Tpv-\\tpv\\adminform.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminform.Designer.cs",
               "RelativeDocumentMoniker": "tpv\\adminform.Designer.cs",
-              "ToolTip": "C:\\Users\\mijae\\Source\\Repos\\Tpv-\\tpv\\adminform.Designer.cs",
+              "ToolTip": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminform.Designer.cs",
               "RelativeToolTip": "tpv\\adminform.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -108,16 +106,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Conexion.cs",
-              "DocumentMoniker": "C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\Conexion.cs",
+              "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\Conexion.cs",
               "RelativeDocumentMoniker": "tpv\\Conexion.cs",
-              "ToolTip": "C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\Conexion.cs",
+              "ToolTip": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\Conexion.cs",
               "RelativeToolTip": "tpv\\Conexion.cs",
               "ViewState": "AgIAAGsAAAAAAAAAAAAAAIIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T15:07:18.092Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T15:07:18.092Z"
             }
           ]
         }
