@@ -20,3 +20,14 @@ C:\Users\mijae\Source\Repos\Tpv-\tpv\obj\Debug\tpv.csproj.GenerateResource.cache
 C:\Users\mijae\Source\Repos\Tpv-\tpv\obj\Debug\tpv.csproj.CoreCompileInputs.cache
 C:\Users\mijae\Source\Repos\Tpv-\tpv\obj\Debug\tpv.exe
 C:\Users\mijae\Source\Repos\Tpv-\tpv\obj\Debug\tpv.pdb
+C:\Users\2dam3\Source\Repos\Tpv-\tpv\obj\Debug\tpv.csproj.AssemblyReference.cache
+C:\Users\2dam3\Source\Repos\Tpv-\tpv\obj\Debug\tpv.adminform.resources
+C:\Users\2dam3\Source\Repos\Tpv-\tpv\obj\Debug\tpv.Form1.resources
+C:\Users\2dam3\Source\Repos\Tpv-\tpv\obj\Debug\tpv.Properties.Resources.resources
+C:\Users\2dam3\Source\Repos\Tpv-\tpv\obj\Debug\tpv.csproj.GenerateResource.cache
+C:\Users\2dam3\Source\Repos\Tpv-\tpv\obj\Debug\tpv.csproj.CoreCompileInputs.cache
+C:\Users\2dam3\Source\Repos\Tpv-\tpv\obj\Debug\tpv.exe
+C:\Users\2dam3\Source\Repos\Tpv-\tpv\obj\Debug\tpv.pdb
+C:\Users\2dam3\Source\Repos\Tpv-\tpv\bin\Debug\tpv.exe.config
+C:\Users\2dam3\Source\Repos\Tpv-\tpv\bin\Debug\tpv.exe
+C:\Users\2dam3\Source\Repos\Tpv-\tpv\bin\Debug\tpv.pdb

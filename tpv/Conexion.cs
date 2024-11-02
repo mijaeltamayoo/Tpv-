@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
+using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace tpv
@@ -12,7 +15,7 @@ namespace tpv
         public Conexion()
         {
             //12
-            con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.16.0; Data Source=C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\database\\database_tpv.accdb;");
+            con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.16.0; Data Source=C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\database\\database_tpv.accdb;");
         }
 
         public void AbrirConexion()
@@ -78,6 +81,31 @@ namespace tpv
 
             return dt;
         }
+
+
+        public DataTable ObtenerCategorias()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                AbrirConexion();
+                string query = "SELECT id, nombre, imagen FROM categorias";
+
+                using (OleDbDataAdapter da = new OleDbDataAdapter(query, con))
+                {
+                    da.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+            return dt;
+        }
+
+
 
     }
 }
