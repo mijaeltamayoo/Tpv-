@@ -22,8 +22,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>true</Prefer32Bit>
-    <PreferNativeArm64>false</PreferNativeArm64>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PreferNativeArm64>true</PreferNativeArm64>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,6 +55,12 @@
     <Compile Include="adminform.Designer.cs">
       <DependentUpon>adminform.cs</DependentUpon>
     </Compile>
+    <Compile Include="adminventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminventas.Designer.cs">
+      <DependentUpon>adminventas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -65,6 +72,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="adminform.resx">
       <DependentUpon>adminform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminventas.resx">
+      <DependentUpon>adminventas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -115,6 +125,7 @@
     <Content Include="images\categorias\hamburguesa.jpg" />
     <Content Include="images\categorias\postres.jpg" />
     <Content Include="images\categorias\salsas.jpg" />
+    <None Include="Resources\image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
