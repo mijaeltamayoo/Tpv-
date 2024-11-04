@@ -15,9 +15,9 @@ namespace tpv
 
         public Conexion()
         {
-            string basePath = AppDomain.CurrentDomain.BaseDirectory; // Obtiene la ruta base del proyecto
-            string relativePath = Path.Combine(basePath, "database", "database_tpv.accdb"); // Ruta relativa a la base de datos
-            con = new OleDbConnection($"Provider=Microsoft.ACE.OLEDB.16.0; Data Source={relativePath};");
+            string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "database", "database_tpv.accdb");
+            con = new OleDbConnection($"Provider=Microsoft.ACE.OLEDB.16.0; Data Source={ruta};");
+
             //12
             //C:\Users\mijae\Source\Repos\Tpv-\tpv\database\
             //con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.16.0; Data Source=C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\database\\database_tpv.accdb;");
@@ -127,7 +127,7 @@ namespace tpv
         {
             DataTable productos = new DataTable();
 
-            //query para obtener el producto dependiendo de la categoria por parametro
+            //query para obtener el producto en donde la categoria_id sea igual a la categoria por parametro
             string query = "SELECT id, nombre, precio, stock, categoria_id, imagen FROM Productos WHERE categoria_id = @categoriaId";
 
             //OleDbCommand nos permite ejecutar la query

@@ -15,58 +15,58 @@ namespace tpv
     {
         private Conexion conexion;
         private ImageList imageListProductos;
-        private ImageList imageListCategorias; // Nueva ImageList para categorías
+        private ImageList imageListCategorias; 
 
         public adminventas()
         {
             InitializeComponent();
             conexion = new Conexion();
             imageListProductos = new ImageList();
-            imageListCategorias = new ImageList(); // Inicializa la ImageList para categorías
-            imageListCategorias.ImageSize = new Size(50, 40); // Ajusta el tamaño de la imagen
+            imageListCategorias = new ImageList(); 
+
+            imageListCategorias.ImageSize = new Size(50, 40); 
             imageListProductos.ImageSize = new Size(90, 50);
 
-            listView1.LargeImageList = imageListCategorias; // Asocia la ImageList con listView1
-            listView2.LargeImageList = imageListProductos; // Asocia la ImageList con listView2
+            listView1.LargeImageList = imageListCategorias; 
+            listView2.LargeImageList = imageListProductos; 
+
             CargarCategorias();
-
             CargarTabla();
-
-            listView2.SelectedIndexChanged += ListViewProductos_SelectedIndexChanged;
-            dataGridView1.CellEndEdit += dataGridViewProductos_CellEndEdit;
 
         }
         private void CargarCategorias()
         {
-            // Obtener las categorías desde la conexión a la base de datos
+            
             DataTable categorias = conexion.ObtenerCategorias();
 
-            // Limpiar elementos previos
             listView1.Items.Clear();
             imageListCategorias.Images.Clear();
 
-            // Cargar las categorías y sus imágenes
             foreach (DataRow row in categorias.Rows)
             {
-                string nombreCategoria = row["nombre"].ToString();
-                string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", "categorias", row["imagen"].ToString());
+                //Obtiene el nombre de la categoria
+                string nombre = row["nombre"].ToString();
+                //Obtiene el nombre de la imagen y se crea una ruta directamente donde esta las imagenes guardadas de nuestro proyecto /images/categorias/".jpg"
+                string image = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", "categorias", row["imagen"].ToString());
 
-                // Agregar la imagen solo si existe en la ruta especificada
-                if (File.Exists(imagePath))
+                // si encuentra la imagen de la categoria, lo agrega a la lista de imagenes 
+                if (File.Exists(image))
                 {
-                    imageListCategorias.Images.Add(nombreCategoria, Image.FromFile(imagePath));
+                    imageListCategorias.Images.Add(nombre, Image.FromFile(image));
                 }
-
-                // Crear y añadir el item de categoría con la imagen y el ID como tag
-                var listItem = new ListViewItem(nombreCategoria, nombreCategoria) { Tag = row["id"].ToString() };
-                listView1.Items.Add(listItem);
+                //creamos un elemento nuevo que estara dentro de la listview, este listview tiene dos parametros
+                //cada item tendra el id de la categoria
+                var item = new ListViewItem(nombre, nombre) { Tag = row["id"].ToString() };
+                listView1.Items.Add(item);
             }
 
-            // Asociar un evento para cargar productos solo cuando hay una selección de categoría
+            //funcion que al cambiar la selección de una categoria 
             listView1.SelectedIndexChanged += (sender, e) =>
             {
+                // si hay alguna categoria seleccionada
                 if (listView1.SelectedItems.Count > 0)
                 {
+                    //obtiene el id de la categoria seleccionada y se guarada en categoriaId
                     string categoriaId = listView1.SelectedItems[0].Tag.ToString();
                     CargarProductosPorCategoria(categoriaId);
                 }
@@ -78,29 +78,22 @@ namespace tpv
         {
             DataTable productos = conexion.ObtenerProductosPorCategoria(categoriaId);
             listView2.Items.Clear();
-            imageListProductos.Images.Clear(); // Limpia las imágenes previas
-
-            // Obtener el nombre de la categoría basado en el ID seleccionado
-            string nombreCategoria = listView1.SelectedItems[0].Text;
+            imageListProductos.Images.Clear();
+            
+            //obtiene la categoria seleccionada del listview1
+            string selected_categoria = listView1.SelectedItems[0].Text;
 
             foreach (DataRow row in productos.Rows)
             {
+                //obtiene el nombre y la imagen del producto
                 string nombreProducto = row["nombre"].ToString();
+                string imagen = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", "productos", selected_categoria, row["imagen"].ToString());
 
-                // Construir la ruta usando el nombre de la categoría como subcarpeta
-                string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", "productos", nombreCategoria, row["imagen"].ToString());
 
-                Console.WriteLine($"Cargando imagen del producto: {imagePath}"); // Mensaje de depuración
-
-                // Verificar si la imagen del producto existe
-                if (File.Exists(imagePath))
+                //si encuentra la iamgen, lo agrega a la lista de imagenes de Productos
+                if (File.Exists(imagen))
                 {
-                    imageListProductos.Images.Add(nombreProducto, Image.FromFile(imagePath));
-                }
-                else
-                {
-                    MessageBox.Show($"Imagen no encontrada para el producto: {imagePath}"); // Mensaje de depuración
-                    imageListProductos.Images.Add(nombreProducto, Properties.Resources.box2); // Imagen predeterminada para productos
+                    imageListProductos.Images.Add(nombreProducto, Image.FromFile(imagen));
                 }
 
                 ListViewItem item = new ListViewItem(nombreProducto)
@@ -115,19 +108,17 @@ namespace tpv
 
         private void CargarTabla()
         {
-            // Agrega columnas al DataGridView
             dataGridView1.Columns.Add("Articulo", "Artículo");
             dataGridView1.Columns.Add("Precio", "Precio");
             dataGridView1.Columns.Add("Cantidad", "Cant.");
             dataGridView1.Columns.Add("Impuestos", "Impuestos");
             dataGridView1.Columns.Add("Importe", "Importe");
 
-            // Configura el ancho de las columnas y el formato de celda
-            dataGridView1.Columns["Precio"].DefaultCellStyle.Format = "C2"; // Formato de moneda
-            dataGridView1.Columns["Importe"].DefaultCellStyle.Format = "C2"; // Formato de moneda
+            dataGridView1.Columns["Precio"].DefaultCellStyle.Format = "C2"; 
+            dataGridView1.Columns["Importe"].DefaultCellStyle.Format = "C2"; 
         }
 
-        private void ListViewProductos_SelectedIndexChanged(object sender, EventArgs e)
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView2.SelectedItems.Count > 0)
             {
@@ -135,27 +126,12 @@ namespace tpv
                 string nombreProducto = producto["nombre"].ToString();
                 decimal precio = Convert.ToDecimal(producto["precio"]);
 
-                // Mostrar el nombre y el precio en los TextBox correspondientes
                 text_producto.Text = nombreProducto;
-                text_precio.Text = precio.ToString("C2"); // Formato de moneda
-                text_cantidad.Text = "1"; // Valor inicial para la cantidad
+                text_precio.Text = precio.ToString("C2");
+                text_cantidad.Text = "1"; 
             }
         }
 
-
-        private void dataGridViewProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == dataGridView1.Columns["Cantidad"].Index)
-            {
-                // Obtener datos de la fila editada
-                int cantidad = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Cantidad"].Value);
-                decimal precio = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["Precio"].Value);
-                decimal importe = precio * cantidad;
-
-                // Actualizar el importe
-                dataGridView1.Rows[e.RowIndex].Cells["Importe"].Value = importe;
-            }
-        }
 
         private void check_Click(object sender, EventArgs e)
         {
@@ -166,13 +142,11 @@ namespace tpv
             {
                 string nombreProducto = text_producto.Text;
                 decimal precio = decimal.Parse(text_precio.Text, System.Globalization.NumberStyles.Currency);
-                decimal impuestos = 0; // Porcentaje de impuestos (puedes ajustarlo según tu lógica)
+                decimal impuestos = 0; 
                 decimal importe = precio * cantidad;
 
-                // Agregar el producto al DataGridView
                 dataGridView1.Rows.Add(nombreProducto, precio, cantidad, $"{impuestos}%", importe);
 
-                // Limpiar los TextBox después de agregar el producto
                 text_producto.Clear();
                 text_precio.Clear();
                 text_cantidad.Clear();
@@ -182,5 +156,7 @@ namespace tpv
                 MessageBox.Show("Por favor, ingrese una cantidad válida.");
             }
         }
+
+      
     }
 }

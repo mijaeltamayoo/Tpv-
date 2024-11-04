@@ -125,6 +125,9 @@
     <Content Include="images\categorias\hamburguesa.jpg" />
     <Content Include="images\categorias\postres.jpg" />
     <Content Include="images\categorias\salsas.jpg" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\cross.png" />
+    <None Include="Resources\check.png" />
     <None Include="Resources\image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
