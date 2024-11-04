@@ -67,16 +67,19 @@ namespace tpv
 
         public DataTable ObtenerProductos()
         {
-            DataTable dt = new DataTable();
+            DataTable productos = new DataTable();
 
             try
             {
                 AbrirConexion();
-                string query = "SELECT * FROM productos"; 
+                string query = "SELECT * FROM productos";
 
-                using (OleDbDataAdapter da = new OleDbDataAdapter(query, con))
+                using (OleDbCommand command = new OleDbCommand(query, con))
                 {
-                    da.Fill(dt);
+                    using (OleDbDataReader reader = command.ExecuteReader())
+                    {
+                        productos.Load(reader);
+                    }
                 }
             }
             catch (Exception ex)
@@ -84,22 +87,30 @@ namespace tpv
                 MessageBox.Show("Error: " + ex.Message);
             }
 
-            return dt;
+            return productos;
         }
 
 
         public DataTable ObtenerCategorias()
         {
-            DataTable dt = new DataTable();
+            DataTable categorias = new DataTable();
 
             try
             {
                 AbrirConexion();
-                string query = "SELECT id, nombre, imagen FROM categorias";
 
-                using (OleDbDataAdapter da = new OleDbDataAdapter(query, con))
+                // query para obtener las categorías
+                string query = "SELECT * FROM categorias";
+
+                //OleDbCommand nos permite ejecutar la query
+                using (OleDbCommand command = new OleDbCommand(query, con))
                 {
-                    da.Fill(dt);
+                    //OleDbDataReader permite leer los datos 
+                    using (OleDbDataReader reader = command.ExecuteReader())
+                    {
+                        //carga los datos en la tabla categorias
+                        categorias.Load(reader);
+                    }
                 }
             }
             catch (Exception ex)
@@ -107,22 +118,31 @@ namespace tpv
                 MessageBox.Show("Error: " + ex.Message);
             }
 
-            return dt;
+            return categorias;
         }
+
+
 
         public DataTable ObtenerProductosPorCategoria(string categoriaId)
         {
-            // Método para obtener productos por categoría
             DataTable productos = new DataTable();
+
+            //query para obtener el producto dependiendo de la categoria por parametro
             string query = "SELECT id, nombre, precio, stock, categoria_id, imagen FROM Productos WHERE categoria_id = @categoriaId";
 
+            //OleDbCommand nos permite ejecutar la query
             using (OleDbCommand command = new OleDbCommand(query, con))
             {
+                //Esta linea nos permite que se asocie la variable pasada en la funcion con la de la base de datos
                 command.Parameters.AddWithValue("@categoriaId", categoriaId);
 
-                using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
+                AbrirConexion();
+
+                //OleDbDataReader permite leer los datos 
+                using (OleDbDataReader reader = command.ExecuteReader())
                 {
-                    adapter.Fill(productos);
+                    //carga los datos en la tabla productos
+                    productos.Load(reader);
                 }
             }
 

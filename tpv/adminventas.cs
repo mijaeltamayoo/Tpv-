@@ -25,6 +25,7 @@ namespace tpv
             imageListCategorias = new ImageList(); // Inicializa la ImageList para categorías
             imageListCategorias.ImageSize = new Size(50, 40); // Ajusta el tamaño de la imagen
             imageListProductos.ImageSize = new Size(90, 50);
+
             listView1.LargeImageList = imageListCategorias; // Asocia la ImageList con listView1
             listView2.LargeImageList = imageListProductos; // Asocia la ImageList con listView2
             CargarCategorias();
@@ -37,36 +38,41 @@ namespace tpv
         }
         private void CargarCategorias()
         {
+            // Obtener las categorías desde la conexión a la base de datos
             DataTable categorias = conexion.ObtenerCategorias();
-            listView1.Items.Clear();
-            imageListCategorias.Images.Clear(); // Limpia las imágenes previas
 
+            // Limpiar elementos previos
+            listView1.Items.Clear();
+            imageListCategorias.Images.Clear();
+
+            // Cargar las categorías y sus imágenes
             foreach (DataRow row in categorias.Rows)
             {
                 string nombreCategoria = row["nombre"].ToString();
                 string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", "categorias", row["imagen"].ToString());
 
-                // Verifica si la imagen de la categoría existe
+                // Agregar la imagen solo si existe en la ruta especificada
                 if (File.Exists(imagePath))
                 {
                     imageListCategorias.Images.Add(nombreCategoria, Image.FromFile(imagePath));
                 }
 
-                listView1.Items.Add(new ListViewItem(nombreCategoria, nombreCategoria) { Tag = row["id"].ToString() });
+                // Crear y añadir el item de categoría con la imagen y el ID como tag
+                var listItem = new ListViewItem(nombreCategoria, nombreCategoria) { Tag = row["id"].ToString() };
+                listView1.Items.Add(listItem);
             }
 
-            // Evento de selección de categoría
-            listView1.SelectedIndexChanged += ListViewCategorias_SelectedIndexChanged;
-        }
-
-        private void ListViewCategorias_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listView1.SelectedItems.Count > 0)
+            // Asociar un evento para cargar productos solo cuando hay una selección de categoría
+            listView1.SelectedIndexChanged += (sender, e) =>
             {
-                string categoriaId = listView1.SelectedItems[0].Tag.ToString();
-                CargarProductosPorCategoria(categoriaId);
-            }
+                if (listView1.SelectedItems.Count > 0)
+                {
+                    string categoriaId = listView1.SelectedItems[0].Tag.ToString();
+                    CargarProductosPorCategoria(categoriaId);
+                }
+            };
         }
+
 
         private void CargarProductosPorCategoria(string categoriaId)
         {
