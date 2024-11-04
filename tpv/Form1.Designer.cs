@@ -36,12 +36,14 @@ namespace tpv
             this.label2 = new System.Windows.Forms.Label();
             this.text_user = new System.Windows.Forms.TextBox();
             this.text_password = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // entrar
             // 
-            this.entrar.Location = new System.Drawing.Point(231, 228);
+            this.entrar.Location = new System.Drawing.Point(101, 281);
             this.entrar.Name = "entrar";
             this.entrar.Size = new System.Drawing.Size(75, 23);
             this.entrar.TabIndex = 0;
@@ -54,7 +56,7 @@ namespace tpv
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(181, 152);
+            this.label1.Location = new System.Drawing.Point(58, 185);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 1;
@@ -63,22 +65,20 @@ namespace tpv
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::tpv.Properties.Resources.logo_burger_removebg_preview;
             this.pictureBox1.Image = global::tpv.Properties.Resources.logo_burger_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(231, 23);
+            this.pictureBox1.Location = new System.Drawing.Point(87, 24);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 88);
+            this.pictureBox1.Size = new System.Drawing.Size(127, 120);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(181, 185);
+            this.label2.Location = new System.Drawing.Point(58, 218);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 3;
@@ -86,35 +86,46 @@ namespace tpv
             // 
             // text_user
             // 
-            this.text_user.Location = new System.Drawing.Point(254, 149);
+            this.text_user.Location = new System.Drawing.Point(131, 182);
             this.text_user.Name = "text_user";
             this.text_user.Size = new System.Drawing.Size(100, 20);
             this.text_user.TabIndex = 4;
             // 
             // text_password
             // 
-            this.text_password.Location = new System.Drawing.Point(254, 185);
+            this.text_password.Location = new System.Drawing.Point(131, 218);
             this.text_password.Name = "text_password";
             this.text_password.Size = new System.Drawing.Size(100, 20);
             this.text_password.TabIndex = 5;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel2.Controls.Add(this.text_password);
+            this.panel2.Controls.Add(this.text_user);
+            this.panel2.Controls.Add(this.entrar);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Location = new System.Drawing.Point(202, 49);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(287, 342);
+            this.panel2.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::tpv.Properties.Resources.background1;
-            this.ClientSize = new System.Drawing.Size(546, 348);
-            this.Controls.Add(this.text_password);
-            this.Controls.Add(this.text_user);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.entrar);
+            this.ClientSize = new System.Drawing.Size(686, 443);
+            this.Controls.Add(this.panel2);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -126,6 +137,7 @@ namespace tpv
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox text_user;
         private System.Windows.Forms.TextBox text_password;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 
