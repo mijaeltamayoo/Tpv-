@@ -51,6 +51,10 @@ namespace tpv
             this.label3 = new System.Windows.Forms.Label();
             this.text_producto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.text_imagen = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -65,9 +69,10 @@ namespace tpv
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(2, 1);
+            this.panel1.Location = new System.Drawing.Point(3, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(97, 446);
+            this.panel1.Size = new System.Drawing.Size(129, 549);
             this.panel1.TabIndex = 0;
             // 
             // button3
@@ -75,9 +80,10 @@ namespace tpv
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.BackgroundImage = global::tpv.Properties.Resources.image;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Location = new System.Drawing.Point(19, 245);
+            this.button3.Location = new System.Drawing.Point(25, 302);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(59, 55);
+            this.button3.Size = new System.Drawing.Size(79, 68);
             this.button3.TabIndex = 6;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -86,9 +92,10 @@ namespace tpv
             // 
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(19, 355);
+            this.button2.Location = new System.Drawing.Point(25, 437);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(59, 55);
+            this.button2.Size = new System.Drawing.Size(79, 68);
             this.button2.TabIndex = 5;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -97,9 +104,10 @@ namespace tpv
             // 
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(19, 144);
+            this.button1.Location = new System.Drawing.Point(25, 177);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(59, 55);
+            this.button1.Size = new System.Drawing.Size(79, 68);
             this.button1.TabIndex = 4;
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -108,9 +116,10 @@ namespace tpv
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 11);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 14);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(97, 85);
+            this.pictureBox1.Size = new System.Drawing.Size(129, 105);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -128,7 +137,7 @@ namespace tpv
             // 
             this.textBox1.Location = new System.Drawing.Point(497, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 1;
             // 
             // dataGridView1
@@ -148,16 +157,21 @@ namespace tpv
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(210, 95);
+            this.dataGridView2.Location = new System.Drawing.Point(280, 117);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(376, 273);
+            this.dataGridView2.Size = new System.Drawing.Size(501, 336);
             this.dataGridView2.TabIndex = 1;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel2.Controls.Add(this.text_imagen);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.edit);
             this.panel2.Controls.Add(this.text_stock);
             this.panel2.Controls.Add(this.cross);
@@ -167,10 +181,10 @@ namespace tpv
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.text_producto);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(644, 128);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Location = new System.Drawing.Point(859, 81);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(183, 203);
+            this.panel2.Size = new System.Drawing.Size(244, 396);
             this.panel2.TabIndex = 5;
             // 
             // edit
@@ -179,18 +193,19 @@ namespace tpv
             this.edit.BackColor = System.Drawing.Color.White;
             this.edit.BackgroundImage = global::tpv.Properties.Resources.edit;
             this.edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.edit.Location = new System.Drawing.Point(130, 142);
+            this.edit.Location = new System.Drawing.Point(182, 232);
+            this.edit.Margin = new System.Windows.Forms.Padding(4);
             this.edit.Name = "edit";
-            this.edit.Size = new System.Drawing.Size(27, 27);
+            this.edit.Size = new System.Drawing.Size(36, 33);
             this.edit.TabIndex = 11;
             this.edit.UseVisualStyleBackColor = false;
             // 
             // text_stock
             // 
-            this.text_stock.Location = new System.Drawing.Point(16, 163);
-            this.text_stock.Margin = new System.Windows.Forms.Padding(2);
+            this.text_stock.Location = new System.Drawing.Point(21, 273);
+            this.text_stock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.text_stock.Name = "text_stock";
-            this.text_stock.Size = new System.Drawing.Size(76, 20);
+            this.text_stock.Size = new System.Drawing.Size(135, 22);
             this.text_stock.TabIndex = 5;
             // 
             // cross
@@ -198,10 +213,10 @@ namespace tpv
             this.cross.BackColor = System.Drawing.Color.White;
             this.cross.BackgroundImage = global::tpv.Properties.Resources.cross;
             this.cross.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cross.Location = new System.Drawing.Point(130, 95);
-            this.cross.Margin = new System.Windows.Forms.Padding(2);
+            this.cross.Location = new System.Drawing.Point(182, 174);
+            this.cross.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cross.Name = "cross";
-            this.cross.Size = new System.Drawing.Size(27, 27);
+            this.cross.Size = new System.Drawing.Size(36, 33);
             this.cross.TabIndex = 10;
             this.cross.UseVisualStyleBackColor = false;
             // 
@@ -210,71 +225,107 @@ namespace tpv
             this.check.BackColor = System.Drawing.Color.White;
             this.check.BackgroundImage = global::tpv.Properties.Resources.check;
             this.check.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.check.Location = new System.Drawing.Point(130, 48);
-            this.check.Margin = new System.Windows.Forms.Padding(2);
+            this.check.Location = new System.Drawing.Point(182, 116);
+            this.check.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.check.Name = "check";
-            this.check.Size = new System.Drawing.Size(27, 27);
+            this.check.Size = new System.Drawing.Size(36, 33);
             this.check.TabIndex = 9;
             this.check.UseVisualStyleBackColor = false;
+            this.check.Click += new System.EventHandler(this.check_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(14, 140);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(19, 244);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(41, 16);
             this.label4.TabIndex = 4;
             this.label4.Text = "Stock";
             // 
             // text_precio
             // 
-            this.text_precio.Location = new System.Drawing.Point(16, 99);
-            this.text_precio.Margin = new System.Windows.Forms.Padding(2);
+            this.text_precio.Location = new System.Drawing.Point(21, 122);
+            this.text_precio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.text_precio.Name = "text_precio";
-            this.text_precio.Size = new System.Drawing.Size(76, 20);
+            this.text_precio.Size = new System.Drawing.Size(135, 22);
             this.text_precio.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(14, 76);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(19, 94);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
+            this.label3.Size = new System.Drawing.Size(46, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Precio";
             // 
             // text_producto
             // 
-            this.text_producto.Location = new System.Drawing.Point(16, 41);
-            this.text_producto.Margin = new System.Windows.Forms.Padding(2);
+            this.text_producto.Location = new System.Drawing.Point(21, 50);
+            this.text_producto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.text_producto.Name = "text_producto";
-            this.text_producto.Size = new System.Drawing.Size(76, 20);
+            this.text_producto.Size = new System.Drawing.Size(135, 22);
             this.text_producto.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(14, 17);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(19, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
+            this.label2.Size = new System.Drawing.Size(61, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Producto";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(21, 199);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(135, 24);
+            this.comboBox1.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(18, 164);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 16);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Categoria";
+            // 
+            // text_imagen
+            // 
+            this.text_imagen.Location = new System.Drawing.Point(21, 350);
+            this.text_imagen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.text_imagen.Name = "text_imagen";
+            this.text_imagen.Size = new System.Drawing.Size(135, 22);
+            this.text_imagen.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(19, 321);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(137, 16);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Nombre de la imagen";
+            // 
             // adminform
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(937, 448);
+            this.ClientSize = new System.Drawing.Size(1249, 551);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "adminform";
             this.Text = "adminform";
             this.panel1.ResumeLayout(false);
@@ -308,5 +359,9 @@ namespace tpv
         private Button edit;
         private Button cross;
         private Button check;
+        private Label label5;
+        private ComboBox comboBox1;
+        private TextBox text_imagen;
+        private Label label6;
     }
 }

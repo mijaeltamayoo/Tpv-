@@ -74,6 +74,22 @@ namespace tpv
             conexion.AgregarUsuarioDB(usuario, password, id_rol);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            adminform adminform = new adminform();
+            adminform.Show();
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            adminventas adminventas = new adminventas();
+            adminventas.Show();
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.Show();
+        }
     }
 }

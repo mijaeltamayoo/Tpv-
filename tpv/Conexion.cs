@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
@@ -73,7 +74,9 @@ namespace tpv
             try
             {
                 AbrirConexion();
-                string query = "SELECT * FROM productos";
+                string query = @"SELECT p.id, p.nombre, p.precio, p.stock, c.nombre AS categoria, p.imagen
+                         FROM productos p
+                         INNER JOIN categorias c ON p.categoria_id = c.id";
 
                 using (OleDbCommand command = new OleDbCommand(query, con))
                 {
@@ -123,7 +126,6 @@ namespace tpv
         }
 
 
-
         public DataTable ObtenerProductosPorCategoria(string categoriaId)
         {
             DataTable productos = new DataTable();
@@ -163,6 +165,7 @@ namespace tpv
             }
             return roles;
         }
+
 
 
         public void AgregarUsuarioDB(string usuario, string password, string id_rol)
@@ -228,6 +231,46 @@ namespace tpv
             }
 
             return usuariosConRoles;
+        }
+
+        public void AgregarProductoaDB(string nombre, string precio, string categoria_id,string stock, string imagen)
+        {
+            AbrirConexion();
+            string query = "INSERT INTO productos (nombre, precio, categoria_id, stock, imagen) values (@nombre, @precio,@caetgoria_id, @stock, @imagen)";
+            using (OleDbCommand command = new OleDbCommand(@query, con))
+            {
+                command.Parameters.AddWithValue("@nombre", nombre);
+                command.Parameters.AddWithValue("@precio", precio);
+                command.Parameters.AddWithValue("@categoria_id", categoria_id);
+                command.Parameters.AddWithValue("@stock", stock);
+                command.Parameters.AddWithValue("@imagen", imagen);
+
+                int result = command.ExecuteNonQuery();
+                if (result > 0)
+                {
+                    MessageBox.Show("El usuario se ha creado");
+                }
+
+            }
+        }
+
+        public DataTable ObtenerProductosConCategoriaID()
+        {
+            DataTable productos_categoria = new DataTable();
+            AbrirConexion();
+
+            string query = @"
+            SELECT p.id, p.nombre, p.precio, p.stock, c.categoria_id AS categoria , p.imagen
+            FROM productos p
+            INNER JOIN categoria c ON p.categoria_id = c.id";
+
+            using (OleDbCommand command = new OleDbCommand(query, con))
+            {
+                OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+                adapter.Fill(productos_categoria);
+            }
+
+            return productos_categoria;
         }
     }
 }
