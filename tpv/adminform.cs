@@ -24,9 +24,9 @@ namespace tpv
             dataGridView2.DataSource = productos;
 
             dataGridView2.Columns["id"].Visible = false;
-            dataGridView2.Columns["nombre"].Visible = true;
-            dataGridView2.Columns["precio"].Visible = true;
-            dataGridView2.Columns["stock"].Visible = true;
+            dataGridView2.Columns["nombre"].HeaderText = "Nombre";
+            dataGridView2.Columns["precio"].HeaderText = "Precio";
+            dataGridView2.Columns["stock"].HeaderText = "Stock";
             dataGridView2.Columns["categoria_id"].Visible = false;
             dataGridView2.Columns["imagen"].Visible = false;
         }

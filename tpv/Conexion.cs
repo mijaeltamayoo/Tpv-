@@ -181,7 +181,7 @@ namespace tpv
             {
                 command.Parameters.AddWithValue("@usuario", usuario);
                 command.Parameters.AddWithValue("@password", password);
-                command.Parameters.AddWithValue("@id_rol", int.Parse(id_rol)); // Asegúrate de que id_rol es un entero
+                command.Parameters.AddWithValue("@id_rol", int.Parse(id_rol)); 
 
                 int result = command.ExecuteNonQuery();
                 if (result > 0)
@@ -211,5 +211,23 @@ namespace tpv
             return found;
         }
 
+        public DataTable ObtenerUsuariosConRoles()
+        {
+            DataTable usuariosConRoles = new DataTable();
+            AbrirConexion();
+
+            string query = @"
+            SELECT u.id, u.usuario, u.password, r.nombre AS rol
+            FROM usuarios u
+            INNER JOIN roles r ON u.id_rol = r.id";
+
+            using (OleDbCommand command = new OleDbCommand(query, con))
+            {
+                OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+                adapter.Fill(usuariosConRoles);
+            }
+
+            return usuariosConRoles;
+        }
     }
 }

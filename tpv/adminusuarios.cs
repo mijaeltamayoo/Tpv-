@@ -19,6 +19,7 @@ namespace tpv
             conexion = new Conexion();
 
             CargarRoles();
+            CargarUsuarios();
         }
 
         public void CargarRoles()
@@ -27,7 +28,6 @@ namespace tpv
 
             foreach (DataRow row in roles.Rows)
             {
-                // Agrega el rol directamente a la lista del comboBox
                 comboBox1.Items.Add(new { Id = row["Id"], Nombre = row["nombre"].ToString() });
             }
 
@@ -35,6 +35,16 @@ namespace tpv
             comboBox1.ValueMember = "Id";
         }
 
+        private void CargarUsuarios()
+        {
+            DataTable usuariosConRoles = conexion.ObtenerUsuariosConRoles();
+            dataGridView1.DataSource = usuariosConRoles;
+
+            dataGridView1.Columns["id"].Visible = false;
+            dataGridView1.Columns["usuario"].HeaderText = "Usuario";
+            dataGridView1.Columns["password"].HeaderText = "Contraseña";
+            dataGridView1.Columns["rol"].HeaderText = "Rol";
+        }
 
         private void crear_usuario_Click(object sender, EventArgs e)
         {
@@ -42,12 +52,11 @@ namespace tpv
             string password = text_contraseña.Text;
             string id_rol = null;
 
-            // Asegúrate de que el SelectedItem no sea nulo y está usando el objeto correcto
-            var selectedItem = comboBox1.SelectedItem as dynamic; // Usar dynamic para acceder a las propiedades
+            var selectedItem = comboBox1.SelectedItem as dynamic; 
 
             if (selectedItem != null)
             {
-                id_rol = selectedItem.Id.ToString(); // Acceder a la propiedad Id
+                id_rol = selectedItem.Id.ToString(); 
             }
 
             if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(password))
@@ -58,14 +67,12 @@ namespace tpv
 
             if (string.IsNullOrEmpty(id_rol))
             {
-                MessageBox.Show("Debes seleccionar un rol.");
+                MessageBox.Show("Selecciona un rol");
                 return;
             }
 
-            // Llamar a la función para agregar el usuario
             conexion.AgregarUsuarioDB(usuario, password, id_rol);
         }
-
 
 
     }

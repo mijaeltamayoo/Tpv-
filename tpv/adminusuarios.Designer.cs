@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminusuarios));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.exit = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -43,10 +44,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.text_usuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.exit = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -61,6 +63,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(97, 678);
             this.panel1.TabIndex = 5;
+            // 
+            // exit
+            // 
+            this.exit.BackgroundImage = global::tpv.Properties.Resources.exit1;
+            this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.exit.Location = new System.Drawing.Point(19, 457);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(59, 55);
+            this.exit.TabIndex = 7;
+            this.exit.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -116,7 +128,7 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.text_usuario);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(366, 45);
+            this.panel2.Location = new System.Drawing.Point(338, 45);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(228, 258);
@@ -199,15 +211,13 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Usuario";
             // 
-            // exit
+            // dataGridView1
             // 
-            this.exit.BackgroundImage = global::tpv.Properties.Resources.exit1;
-            this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.exit.Location = new System.Drawing.Point(19, 457);
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(59, 55);
-            this.exit.TabIndex = 7;
-            this.exit.UseVisualStyleBackColor = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(266, 323);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(389, 232);
+            this.dataGridView1.TabIndex = 11;
             // 
             // adminusuarios
             // 
@@ -216,6 +226,7 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackgroundImage = global::tpv.Properties.Resources.background1;
             this.ClientSize = new System.Drawing.Size(903, 579);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "adminusuarios";
@@ -224,6 +235,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -245,5 +257,6 @@
         private System.Windows.Forms.Button crear_usuario;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
