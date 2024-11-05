@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|c:\\users\\2dam3\\source\\repos\\tpv-\\tpv\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\adminventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|c:\\users\\2dam3\\source\\repos\\tpv-\\tpv\\adminventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\adminventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|c:\\users\\2dam3\\source\\repos\\tpv-\\tpv\\adminusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\adminusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|c:\\users\\2dam3\\source\\repos\\tpv-\\tpv\\adminusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\adminusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,7 +29,7 @@
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 256,
+      "VerticalTabListWidth": 183,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
@@ -41,7 +37,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "tpv",
               "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\tpv.csproj",
               "RelativeDocumentMoniker": "tpv\\tpv.csproj",
@@ -53,13 +49,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "adminform.cs",
               "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminform.cs",
               "RelativeDocumentMoniker": "tpv\\adminform.cs",
               "ToolTip": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminform.cs",
               "RelativeToolTip": "tpv\\adminform.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAD4vxwAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAUwCoAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-30T17:18:33.188Z",
               "IsPinned": true,
@@ -80,51 +76,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "adminventas.cs",
-              "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminventas.cs",
-              "RelativeDocumentMoniker": "tpv\\adminventas.cs",
-              "ToolTip": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminventas.cs",
-              "RelativeToolTip": "tpv\\adminventas.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwF4AAAARAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "adminusuarios.cs",
+              "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminusuarios.cs",
+              "RelativeDocumentMoniker": "tpv\\adminusuarios.cs",
+              "ToolTip": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminusuarios.cs*",
+              "RelativeToolTip": "tpv\\adminusuarios.cs*",
+              "ViewState": "AgIAACMAAAAAAAAAAAAswCoAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T17:39:05.828Z",
+              "WhenOpened": "2024-11-05T10:29:14.995Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\Form1.cs",
-              "RelativeDocumentMoniker": "tpv\\Form1.cs",
-              "ToolTip": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\Form1.cs [Dise\u00F1o]*",
-              "RelativeToolTip": "tpv\\Form1.cs [Dise\u00F1o]*",
+              "Title": "adminusuarios.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminusuarios.cs",
+              "RelativeDocumentMoniker": "tpv\\adminusuarios.cs",
+              "ToolTip": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminusuarios.cs [Dise\u00F1o]*",
+              "RelativeToolTip": "tpv\\adminusuarios.cs [Dise\u00F1o]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T09:06:33.417Z",
+              "WhenOpened": "2024-11-05T11:09:00.385Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "adminventas.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminventas.cs",
-              "RelativeDocumentMoniker": "tpv\\adminventas.cs",
-              "ToolTip": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\adminventas.cs [Dise\u00F1o]",
-              "RelativeToolTip": "tpv\\adminventas.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T17:34:18.481Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Conexion.cs",
               "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\Conexion.cs",
               "RelativeDocumentMoniker": "tpv\\Conexion.cs",
               "ToolTip": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\Conexion.cs",
               "RelativeToolTip": "tpv\\Conexion.cs",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAYwIEAAABRAAAAAAAAAA==",
+              "ViewState": "AgIAALYAAAAAAAAAAAAswMkAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-30T15:07:18.092Z",
               "EditorCaption": ""

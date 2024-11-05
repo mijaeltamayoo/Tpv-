@@ -55,6 +55,12 @@
     <Compile Include="adminform.Designer.cs">
       <DependentUpon>adminform.cs</DependentUpon>
     </Compile>
+    <Compile Include="adminusuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminusuarios.Designer.cs">
+      <DependentUpon>adminusuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="adminventas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="adminform.resx">
       <DependentUpon>adminform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminusuarios.resx">
+      <DependentUpon>adminusuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="adminventas.resx">
       <DependentUpon>adminventas.cs</DependentUpon>
@@ -125,6 +134,8 @@
     <Content Include="images\categorias\hamburguesa.jpg" />
     <Content Include="images\categorias\postres.jpg" />
     <Content Include="images\categorias\salsas.jpg" />
+    <None Include="Resources\exit1.png" />
+    <None Include="Resources\exit.png" />
     <None Include="Resources\edit.png" />
     <None Include="Resources\cross.png" />
     <None Include="Resources\check.png" />

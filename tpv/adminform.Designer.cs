@@ -42,15 +42,15 @@ namespace tpv
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.edit = new System.Windows.Forms.Button();
             this.text_stock = new System.Windows.Forms.TextBox();
+            this.cross = new System.Windows.Forms.Button();
+            this.check = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.text_precio = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.text_producto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.edit = new System.Windows.Forms.Button();
-            this.cross = new System.Windows.Forms.Button();
-            this.check = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -91,6 +91,7 @@ namespace tpv
             this.button2.Size = new System.Drawing.Size(59, 55);
             this.button2.TabIndex = 5;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -167,67 +168,10 @@ namespace tpv
             this.panel2.Controls.Add(this.text_producto);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(644, 128);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(183, 203);
             this.panel2.TabIndex = 5;
-            // 
-            // text_stock
-            // 
-            this.text_stock.Location = new System.Drawing.Point(16, 163);
-            this.text_stock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.text_stock.Name = "text_stock";
-            this.text_stock.Size = new System.Drawing.Size(76, 20);
-            this.text_stock.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(14, 140);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Stock";
-            // 
-            // text_precio
-            // 
-            this.text_precio.Location = new System.Drawing.Point(16, 99);
-            this.text_precio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.text_precio.Name = "text_precio";
-            this.text_precio.Size = new System.Drawing.Size(76, 20);
-            this.text_precio.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(14, 76);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Precio";
-            // 
-            // text_producto
-            // 
-            this.text_producto.Location = new System.Drawing.Point(16, 41);
-            this.text_producto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.text_producto.Name = "text_producto";
-            this.text_producto.Size = new System.Drawing.Size(76, 20);
-            this.text_producto.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(14, 17);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Producto";
             // 
             // edit
             // 
@@ -240,6 +184,14 @@ namespace tpv
             this.edit.Size = new System.Drawing.Size(27, 27);
             this.edit.TabIndex = 11;
             this.edit.UseVisualStyleBackColor = false;
+            // 
+            // text_stock
+            // 
+            this.text_stock.Location = new System.Drawing.Point(16, 163);
+            this.text_stock.Margin = new System.Windows.Forms.Padding(2);
+            this.text_stock.Name = "text_stock";
+            this.text_stock.Size = new System.Drawing.Size(76, 20);
+            this.text_stock.TabIndex = 5;
             // 
             // cross
             // 
@@ -264,6 +216,55 @@ namespace tpv
             this.check.Size = new System.Drawing.Size(27, 27);
             this.check.TabIndex = 9;
             this.check.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(14, 140);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Stock";
+            // 
+            // text_precio
+            // 
+            this.text_precio.Location = new System.Drawing.Point(16, 99);
+            this.text_precio.Margin = new System.Windows.Forms.Padding(2);
+            this.text_precio.Name = "text_precio";
+            this.text_precio.Size = new System.Drawing.Size(76, 20);
+            this.text_precio.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(14, 76);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Precio";
+            // 
+            // text_producto
+            // 
+            this.text_producto.Location = new System.Drawing.Point(16, 41);
+            this.text_producto.Margin = new System.Windows.Forms.Padding(2);
+            this.text_producto.Name = "text_producto";
+            this.text_producto.Size = new System.Drawing.Size(76, 20);
+            this.text_producto.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(14, 17);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Producto";
             // 
             // adminform
             // 

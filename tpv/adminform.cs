@@ -36,5 +36,11 @@ namespace tpv
             adminventas ventas = new adminventas();
             ventas.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            adminusuarios usuarios = new adminusuarios();
+            usuarios.Show();
+        }
     }
 }

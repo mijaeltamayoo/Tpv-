@@ -5,6 +5,7 @@ using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace tpv
@@ -149,8 +150,66 @@ namespace tpv
             return productos;
         }
 
+        public DataTable ObtenerRoles()
+        {
+            DataTable roles = new DataTable();
+            AbrirConexion();
+            string query = "SELECT * FROM roles";
+
+            using (OleDbCommand cmd = new OleDbCommand(query, con))
+            {
+                OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
+                adapter.Fill(roles);
+            }
+            return roles;
+        }
 
 
+        public void AgregarUsuarioDB(string usuario, string password, string id_rol)
+        {
+
+            if (ExisteUsuario(usuario))
+            {
+                MessageBox.Show("El nombre del usuario ya existe");
+                return;
+            }
+
+            AbrirConexion();
+            string query = "INSERT INTO [usuarios] ([usuario], [password], [id_rol]) VALUES (@usuario, @password, @id_rol)";
+
+            using (OleDbCommand command = new OleDbCommand(query, con))
+            {
+                command.Parameters.AddWithValue("@usuario", usuario);
+                command.Parameters.AddWithValue("@password", password);
+                command.Parameters.AddWithValue("@id_rol", int.Parse(id_rol)); // Asegúrate de que id_rol es un entero
+
+                int result = command.ExecuteNonQuery();
+                if (result > 0)
+                {
+                    MessageBox.Show("El usuario se ha creado");
+                }
+            }
+      
+        }
+
+        public bool ExisteUsuario(string usuario)
+        {
+            bool found = false;
+
+            AbrirConexion();
+            string query = "SELECT COUNT(*) FROM usuarios WHERE usuario = ?"; 
+
+            using (OleDbCommand command = new OleDbCommand(query, con))
+            {
+                command.Parameters.AddWithValue("?", usuario);
+
+                int count = (int)command.ExecuteScalar();
+                found = (count > 0);
+            }
+
+
+            return found;
+        }
 
     }
 }
