@@ -126,9 +126,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="database\database_tpv.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="database\database_tpv.accdb" />
     <Content Include="images\categorias\bebidas.png" />
     <Content Include="images\categorias\entrantes.jpg" />
     <Content Include="images\categorias\hamburguesa.jpg" />

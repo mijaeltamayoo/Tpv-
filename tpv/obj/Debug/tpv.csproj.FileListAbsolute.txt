@@ -31,7 +31,6 @@ C:\Users\2dam3\Source\Repos\Tpv-\tpv\obj\Debug\tpv.pdb
 C:\Users\2dam3\Source\Repos\Tpv-\tpv\bin\Debug\tpv.exe.config
 C:\Users\2dam3\Source\Repos\Tpv-\tpv\bin\Debug\tpv.exe
 C:\Users\2dam3\Source\Repos\Tpv-\tpv\bin\Debug\tpv.pdb
-C:\Users\mijae\Source\Repos\Tpv-\tpv\bin\Debug\database\database_tpv.accdb
 C:\Users\2dam3\source\repos\Tpv-\tpv\bin\Debug\database\database_tpv.accdb
 C:\Users\mijae\source\repos\Tpv-\tpv\obj\Debug\tpv.adminventas.resources
 C:\Users\2dam3\Source\Repos\Tpv-\tpv\obj\Debug\tpv.adminventas.resources

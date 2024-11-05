@@ -36,8 +36,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.edit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.crear_usuario = new System.Windows.Forms.Button();
+            this.cross = new System.Windows.Forms.Button();
+            this.btn_add = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.text_contraseña = new System.Windows.Forms.TextBox();
@@ -129,8 +131,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel2.Controls.Add(this.edit);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.crear_usuario);
+            this.panel2.Controls.Add(this.cross);
+            this.panel2.Controls.Add(this.btn_add);
             this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.text_contraseña);
@@ -140,30 +144,59 @@
             this.panel2.Location = new System.Drawing.Point(451, 55);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(304, 318);
+            this.panel2.Size = new System.Drawing.Size(387, 318);
             this.panel2.TabIndex = 10;
+            // 
+            // edit
+            // 
+            this.edit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.edit.BackColor = System.Drawing.Color.White;
+            this.edit.BackgroundImage = global::tpv.Properties.Resources.edit;
+            this.edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.edit.Location = new System.Drawing.Point(316, 184);
+            this.edit.Margin = new System.Windows.Forms.Padding(4);
+            this.edit.Name = "edit";
+            this.edit.Size = new System.Drawing.Size(36, 33);
+            this.edit.TabIndex = 14;
+            this.edit.UseVisualStyleBackColor = false;
+            this.edit.Click += new System.EventHandler(this.edit_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(99, 22);
+            this.label1.Location = new System.Drawing.Point(148, 21);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 16);
             this.label1.TabIndex = 12;
             this.label1.Text = "Crear Usuarios";
             // 
-            // crear_usuario
+            // cross
             // 
-            this.crear_usuario.Location = new System.Drawing.Point(100, 270);
-            this.crear_usuario.Margin = new System.Windows.Forms.Padding(4);
-            this.crear_usuario.Name = "crear_usuario";
-            this.crear_usuario.Size = new System.Drawing.Size(100, 28);
-            this.crear_usuario.TabIndex = 11;
-            this.crear_usuario.Text = "Crear";
-            this.crear_usuario.UseVisualStyleBackColor = true;
-            this.crear_usuario.Click += new System.EventHandler(this.crear_usuario_Click);
+            this.cross.BackColor = System.Drawing.Color.White;
+            this.cross.BackgroundImage = global::tpv.Properties.Resources.cross;
+            this.cross.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cross.Location = new System.Drawing.Point(316, 126);
+            this.cross.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cross.Name = "cross";
+            this.cross.Size = new System.Drawing.Size(36, 33);
+            this.cross.TabIndex = 13;
+            this.cross.UseVisualStyleBackColor = false;
+            this.cross.Click += new System.EventHandler(this.cross_Click);
+            // 
+            // btn_add
+            // 
+            this.btn_add.BackColor = System.Drawing.Color.White;
+            this.btn_add.BackgroundImage = global::tpv.Properties.Resources.check;
+            this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_add.Location = new System.Drawing.Point(316, 68);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(36, 33);
+            this.btn_add.TabIndex = 12;
+            this.btn_add.UseVisualStyleBackColor = false;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // comboBox1
             // 
@@ -229,6 +262,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(519, 286);
             this.dataGridView1.TabIndex = 11;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // adminusuarios
             // 
@@ -266,9 +300,11 @@
         private System.Windows.Forms.TextBox text_usuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button crear_usuario;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button exit;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button edit;
+        private System.Windows.Forms.Button cross;
+        private System.Windows.Forms.Button btn_add;
     }
 }

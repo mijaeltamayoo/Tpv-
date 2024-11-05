@@ -17,7 +17,9 @@ namespace tpv
 
         public Conexion()
         {
-            string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "database", "database_tpv.accdb");
+            //string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "database", "database_tpv.accdb");
+            string ruta = @"C:\Users\mijae\source\repos\Tpv-\tpv\database\database_tpv.accdb";
+
             con = new OleDbConnection($"Provider=Microsoft.ACE.OLEDB.16.0; Data Source={ruta};");
 
             //12
@@ -253,6 +255,50 @@ namespace tpv
 
             }
         }
+        public void EliminarUsuario(int id)
+        {
+            AbrirConexion();
+            string query = "DELETE FROM usuarios WHERE id = @id";
+
+            using (OleDbCommand command = new OleDbCommand(query, con))
+            {
+                command.Parameters.AddWithValue("@idUsuario", id);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void EditarUsuarioDB(int idUsuario, string usuario, string password, string idRol)
+        {
+            try
+            {
+                AbrirConexion();
+                string query = "UPDATE [usuarios] SET [usuario] = @usuario, [password] = @password, [id_rol] = @id_rol WHERE [id] = @id";
+                using (OleDbCommand command = new OleDbCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("@usuario", usuario);
+                    command.Parameters.AddWithValue("@password", password);
+                    command.Parameters.AddWithValue("@id_rol", int.Parse(idRol));
+                    command.Parameters.AddWithValue("@idUsuario", idUsuario);
+
+                    int result = command.ExecuteNonQuery();
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Usuario actualizado.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo actualizar el usuario.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+
+
 
         public DataTable ObtenerProductosConCategoriaID()
         {
