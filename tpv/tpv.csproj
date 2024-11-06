@@ -22,8 +22,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>true</Prefer32Bit>
-    <PreferNativeArm64>false</PreferNativeArm64>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PreferNativeArm64>true</PreferNativeArm64>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -116,6 +116,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="usuarioreserva.resx">
+      <DependentUpon>usuarioreserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usuarioreservacs.resx">
+      <DependentUpon>usuarioreservacs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="usuarioventas.resx">
       <DependentUpon>usuarioventas.cs</DependentUpon>
     </EmbeddedResource>
