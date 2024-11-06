@@ -48,7 +48,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.text_producto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.total = new System.Windows.Forms.Label();
+            this.text_total = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -147,7 +148,7 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(172, 30);
+            this.dataGridView1.Location = new System.Drawing.Point(185, 57);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -155,10 +156,13 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(555, 274);
             this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel2.Controls.Add(this.text_total);
+            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.edit);
             this.panel2.Controls.Add(this.cross);
             this.panel2.Controls.Add(this.check);
@@ -168,10 +172,10 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.text_producto);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(772, 56);
+            this.panel2.Location = new System.Drawing.Point(774, 57);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(183, 203);
+            this.panel2.Size = new System.Drawing.Size(183, 274);
             this.panel2.TabIndex = 9;
             // 
             // edit
@@ -180,30 +184,32 @@
             this.edit.BackColor = System.Drawing.Color.White;
             this.edit.BackgroundImage = global::tpv.Properties.Resources.edit;
             this.edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.edit.Location = new System.Drawing.Point(132, 146);
+            this.edit.Location = new System.Drawing.Point(126, 165);
             this.edit.Name = "edit";
             this.edit.Size = new System.Drawing.Size(27, 27);
             this.edit.TabIndex = 8;
             this.edit.UseVisualStyleBackColor = false;
+            this.edit.Click += new System.EventHandler(this.edit_Click);
             // 
             // cross
             // 
             this.cross.BackColor = System.Drawing.Color.White;
             this.cross.BackgroundImage = global::tpv.Properties.Resources.cross;
             this.cross.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cross.Location = new System.Drawing.Point(132, 99);
+            this.cross.Location = new System.Drawing.Point(126, 118);
             this.cross.Margin = new System.Windows.Forms.Padding(2);
             this.cross.Name = "cross";
             this.cross.Size = new System.Drawing.Size(27, 27);
             this.cross.TabIndex = 7;
             this.cross.UseVisualStyleBackColor = false;
+            this.cross.Click += new System.EventHandler(this.cross_Click);
             // 
             // check
             // 
             this.check.BackColor = System.Drawing.Color.White;
             this.check.BackgroundImage = global::tpv.Properties.Resources.check;
             this.check.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.check.Location = new System.Drawing.Point(132, 52);
+            this.check.Location = new System.Drawing.Point(126, 71);
             this.check.Margin = new System.Windows.Forms.Padding(2);
             this.check.Name = "check";
             this.check.Size = new System.Drawing.Size(27, 27);
@@ -268,14 +274,25 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Producto";
             // 
-            // total
+            // text_total
             // 
-            this.total.AutoSize = true;
-            this.total.Location = new System.Drawing.Point(575, 325);
-            this.total.Name = "total";
-            this.total.Size = new System.Drawing.Size(35, 13);
-            this.total.TabIndex = 9;
-            this.total.Text = "label1";
+            this.text_total.Location = new System.Drawing.Point(16, 226);
+            this.text_total.Margin = new System.Windows.Forms.Padding(2);
+            this.text_total.Name = "text_total";
+            this.text_total.ReadOnly = true;
+            this.text_total.Size = new System.Drawing.Size(76, 20);
+            this.text_total.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(14, 201);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Total";
             // 
             // adminventas
             // 
@@ -283,7 +300,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::tpv.Properties.Resources.background1;
             this.ClientSize = new System.Drawing.Size(982, 665);
-            this.Controls.Add(this.total);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
@@ -298,7 +314,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -323,6 +338,7 @@
         private System.Windows.Forms.Button check;
         private System.Windows.Forms.Button edit;
         private System.Windows.Forms.Button cross;
-        private System.Windows.Forms.Label total;
+        private System.Windows.Forms.TextBox text_total;
+        private System.Windows.Forms.Label label5;
     }
 }

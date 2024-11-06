@@ -18,7 +18,7 @@ namespace tpv
         public Conexion()
         {
             //string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "database", "database_tpv.accdb");
-            string ruta = @"C:\Users\mijae\source\repos\Tpv-\tpv\database\database_tpv.accdb";
+            string ruta = @"C:\Users\2dam3\source\repos\Tpv-\tpv\database\database_tpv.accdb";
 
             con = new OleDbConnection($"Provider=Microsoft.ACE.OLEDB.16.0; Data Source={ruta};");
 
@@ -67,6 +67,127 @@ namespace tpv
 
 
             return tipo;
+        }
+
+ 
+        public DataTable ObtenerRoles()
+        {
+            DataTable roles = new DataTable();
+            AbrirConexion();
+            string query = "SELECT * FROM roles";
+
+            using (OleDbCommand cmd = new OleDbCommand(query, con))
+            {
+                OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
+                adapter.Fill(roles);
+            }
+            return roles;
+        }
+
+        public DataTable ObtenerUsuarios()
+        {
+            DataTable usuariosConRoles = new DataTable();
+            AbrirConexion();
+
+            string query = @"
+            SELECT u.id, u.usuario, u.password, r.nombre AS rol
+            FROM usuarios u
+            INNER JOIN roles r ON u.id_rol = r.id";
+
+            using (OleDbCommand command = new OleDbCommand(query, con))
+            {
+                OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+                adapter.Fill(usuariosConRoles);
+            }
+
+            return usuariosConRoles;
+        }
+
+        public void AgregarUsuarioDB(string usuario, string password, string id_rol)
+        {
+
+            if (ExisteUsuario(usuario))
+            {
+                MessageBox.Show("El nombre del usuario ya existe");
+                return;
+            }
+
+            AbrirConexion();
+            string query = "INSERT INTO [usuarios] ([usuario], [password], [id_rol]) VALUES (@usuario, @password, @id_rol)";
+
+            using (OleDbCommand command = new OleDbCommand(query, con))
+            {
+                command.Parameters.AddWithValue("@usuario", usuario);
+                command.Parameters.AddWithValue("@password", password);
+                command.Parameters.AddWithValue("@id_rol", int.Parse(id_rol)); 
+
+                int result = command.ExecuteNonQuery();
+                if (result > 0)
+                {
+                    MessageBox.Show("El usuario se ha creado");
+                }
+            }
+      
+        }
+        public void EliminarUsuario(int id)
+        {
+            AbrirConexion();
+            string query = "DELETE FROM usuarios WHERE id = @id";
+
+            using (OleDbCommand command = new OleDbCommand(query, con))
+            {
+                command.Parameters.AddWithValue("@idUsuario", id);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void EditarUsuario(int idUsuario, string usuario, string password, string idRol)
+        {
+            try
+            {
+                AbrirConexion();
+                string query = "UPDATE [usuarios] SET [usuario] = @usuario, [password] = @password, [id_rol] = @id_rol WHERE [id] = @id";
+                using (OleDbCommand command = new OleDbCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("@usuario", usuario);
+                    command.Parameters.AddWithValue("@password", password);
+                    command.Parameters.AddWithValue("@id_rol", int.Parse(idRol));
+                    command.Parameters.AddWithValue("@idUsuario", idUsuario);
+
+                    int result = command.ExecuteNonQuery();
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Usuario actualizado.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo actualizar el usuario.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        public bool ExisteUsuario(string usuario)
+        {
+            bool found = false;
+
+            AbrirConexion();
+            string query = "SELECT COUNT(*) FROM usuarios WHERE usuario = ?"; 
+
+            using (OleDbCommand command = new OleDbCommand(query, con))
+            {
+                command.Parameters.AddWithValue("?", usuario);
+
+                int count = (int)command.ExecuteScalar();
+                found = (count > 0);
+            }
+
+
+            return found;
         }
 
         public DataTable ObtenerProductos()
@@ -154,98 +275,16 @@ namespace tpv
             return productos;
         }
 
-        public DataTable ObtenerRoles()
-        {
-            DataTable roles = new DataTable();
-            AbrirConexion();
-            string query = "SELECT * FROM roles";
-
-            using (OleDbCommand cmd = new OleDbCommand(query, con))
-            {
-                OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
-                adapter.Fill(roles);
-            }
-            return roles;
-        }
-
-
-
-        public void AgregarUsuarioDB(string usuario, string password, string id_rol)
-        {
-
-            if (ExisteUsuario(usuario))
-            {
-                MessageBox.Show("El nombre del usuario ya existe");
-                return;
-            }
-
-            AbrirConexion();
-            string query = "INSERT INTO [usuarios] ([usuario], [password], [id_rol]) VALUES (@usuario, @password, @id_rol)";
-
-            using (OleDbCommand command = new OleDbCommand(query, con))
-            {
-                command.Parameters.AddWithValue("@usuario", usuario);
-                command.Parameters.AddWithValue("@password", password);
-                command.Parameters.AddWithValue("@id_rol", int.Parse(id_rol)); 
-
-                int result = command.ExecuteNonQuery();
-                if (result > 0)
-                {
-                    MessageBox.Show("El usuario se ha creado");
-                }
-            }
-      
-        }
-
-        public bool ExisteUsuario(string usuario)
-        {
-            bool found = false;
-
-            AbrirConexion();
-            string query = "SELECT COUNT(*) FROM usuarios WHERE usuario = ?"; 
-
-            using (OleDbCommand command = new OleDbCommand(query, con))
-            {
-                command.Parameters.AddWithValue("?", usuario);
-
-                int count = (int)command.ExecuteScalar();
-                found = (count > 0);
-            }
-
-
-            return found;
-        }
-
-        public DataTable ObtenerUsuariosConRoles()
-        {
-            DataTable usuariosConRoles = new DataTable();
-            AbrirConexion();
-
-            string query = @"
-            SELECT u.id, u.usuario, u.password, r.nombre AS rol
-            FROM usuarios u
-            INNER JOIN roles r ON u.id_rol = r.id";
-
-            using (OleDbCommand command = new OleDbCommand(query, con))
-            {
-                OleDbDataAdapter adapter = new OleDbDataAdapter(command);
-                adapter.Fill(usuariosConRoles);
-            }
-
-            return usuariosConRoles;
-        }
-
-        public void AgregarProductoaDB(string nombre, string precio, string categoria_id,string stock, string imagen)
+        public void AgregarProductoaDB(string nombre, string precio, string categoria_id,string stock)
         {
             AbrirConexion();
-            string query = "INSERT INTO productos (nombre, precio, categoria_id, stock, imagen) values (@nombre, @precio,@caetgoria_id, @stock, @imagen)";
+            string query = "INSERT INTO productos (nombre, precio, categoria_id, stock) values (@nombre, @precio,@caetgoria_id, @stock)";
             using (OleDbCommand command = new OleDbCommand(@query, con))
             {
                 command.Parameters.AddWithValue("@nombre", nombre);
                 command.Parameters.AddWithValue("@precio", precio);
                 command.Parameters.AddWithValue("@categoria_id", categoria_id);
                 command.Parameters.AddWithValue("@stock", stock);
-                command.Parameters.AddWithValue("@imagen", imagen);
 
                 int result = command.ExecuteNonQuery();
                 if (result > 0)
@@ -255,40 +294,33 @@ namespace tpv
 
             }
         }
-        public void EliminarUsuario(int id)
+
+        public void EliminarProducto(int id)
         {
             AbrirConexion();
-            string query = "DELETE FROM usuarios WHERE id = @id";
+            string query = "DELETE FROM productos WHERE id = @id";
 
             using (OleDbCommand command = new OleDbCommand(query, con))
             {
-                command.Parameters.AddWithValue("@idUsuario", id);
+                command.Parameters.AddWithValue("@idproducto", id);
                 command.ExecuteNonQuery();
             }
         }
 
-        public void EditarUsuarioDB(int idUsuario, string usuario, string password, string idRol)
+        public void ActualizarProducto(int id_producto, string nuevoNombre, string nuevoPrecio, string nuevoStock, string nuevaCategoriaId)
         {
             try
             {
                 AbrirConexion();
-                string query = "UPDATE [usuarios] SET [usuario] = @usuario, [password] = @password, [id_rol] = @id_rol WHERE [id] = @id";
+                string query = "UPDATE [productos] SET [nombre] = @nombre, [precio] = @precio, [categoria_id] = @categoria_id, [stock] = @stock WHERE [id] = @id";
                 using (OleDbCommand command = new OleDbCommand(query, con))
                 {
-                    command.Parameters.AddWithValue("@usuario", usuario);
-                    command.Parameters.AddWithValue("@password", password);
-                    command.Parameters.AddWithValue("@id_rol", int.Parse(idRol));
-                    command.Parameters.AddWithValue("@idUsuario", idUsuario);
-
-                    int result = command.ExecuteNonQuery();
-                    if (result > 0)
-                    {
-                        MessageBox.Show("Usuario actualizado.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo actualizar el usuario.");
-                    }
+                    command.Parameters.AddWithValue("@nombre", nuevoNombre);
+                    command.Parameters.AddWithValue("@precio", nuevoPrecio);
+                    command.Parameters.AddWithValue("@categoria_id", nuevaCategoriaId);
+                    command.Parameters.AddWithValue("@stock", nuevoStock);
+                    command.Parameters.AddWithValue("@id", id_producto);
+                    command.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)
@@ -296,9 +328,6 @@ namespace tpv
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-
-
-
 
         public DataTable ObtenerProductosConCategoriaID()
         {

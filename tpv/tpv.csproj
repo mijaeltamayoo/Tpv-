@@ -22,8 +22,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-    <PreferNativeArm64>true</PreferNativeArm64>
+    <Prefer32Bit>true</Prefer32Bit>
+    <PreferNativeArm64>false</PreferNativeArm64>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -76,6 +76,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="usuarioreserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usuarioreserva.Designer.cs">
+      <DependentUpon>usuarioreserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usuarioreservacs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usuarioreservacs.Designer.cs">
+      <DependentUpon>usuarioreservacs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usuarioventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usuarioventas.Designer.cs">
+      <DependentUpon>usuarioventas.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="adminform.resx">
       <DependentUpon>adminform.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +116,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="usuarioventas.resx">
+      <DependentUpon>usuarioventas.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="database\database_tpv.laccdb" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -132,6 +153,12 @@
     <Content Include="images\categorias\hamburguesa.jpg" />
     <Content Include="images\categorias\postres.jpg" />
     <Content Include="images\categorias\salsas.jpg" />
+    <None Include="Resources\mesa.png" />
+    <None Include="Resources\image-removebg-preview %284%29.png" />
+    <None Include="Resources\print1.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\printer1.png" />
+    <None Include="Resources\printer.png" />
     <None Include="Resources\exit1.png" />
     <None Include="Resources\exit.png" />
     <None Include="Resources\edit.png" />

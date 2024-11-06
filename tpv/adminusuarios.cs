@@ -13,6 +13,7 @@ namespace tpv
     public partial class adminusuarios : Form
     {
         private Conexion conexion;
+
         public adminusuarios()
         {
             InitializeComponent();
@@ -37,7 +38,7 @@ namespace tpv
 
         private void CargarUsuarios()
         {
-            DataTable usuariosConRoles = conexion.ObtenerUsuariosConRoles();
+            DataTable usuariosConRoles = conexion.ObtenerUsuarios();
             dataGridView1.DataSource = usuariosConRoles;
 
             dataGridView1.Columns["id"].Visible = false;
@@ -98,10 +99,9 @@ namespace tpv
         {
             if (dataGridView1.CurrentRow != null)
             {
-                // Obtener los datos del usuario seleccionado
                 text_usuario.Text = dataGridView1.CurrentRow.Cells["usuario"].Value.ToString();
                 text_contraseña.Text = dataGridView1.CurrentRow.Cells["password"].Value.ToString();
-                comboBox1.SelectedValue = dataGridView1.CurrentRow.Cells["rol"].Value; // Asumiendo que "rol" es el nombre del campo de rol
+                comboBox1.SelectedValue = dataGridView1.CurrentRow.Cells["rol"].Value.ToString(); 
             }
         }
 
@@ -109,25 +109,20 @@ namespace tpv
         {
             if (dataGridView1.CurrentRow != null)
             {
-                string usuario = dataGridView1.CurrentRow.Cells["usuario"].Value.ToString();
-                DialogResult result = MessageBox.Show($"¿Estás seguro de que deseas eliminar al usuario '{usuario}'?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                string producto = dataGridView1.CurrentRow.Cells["Articulo"].Value.ToString();
+                DialogResult result = MessageBox.Show($"¿Estás seguro de que deseas eliminar este producto '{producto}'?",
+                                                      "Confirmar eliminación",
+                                                      MessageBoxButtons.YesNo,
+                                                      MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
-                    // Eliminar el usuario
-                    int idUsuario = (int)dataGridView1.CurrentRow.Cells["id"].Value; // Obtener el ID del usuario
+                    dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
 
-                    // Llama a un método en tu clase Conexion para eliminar el usuario
-                    conexion.EliminarUsuario(idUsuario);
-                    MessageBox.Show("Usuario eliminado.");
-                    CargarUsuarios(); // Recargar usuarios después de la eliminación
                 }
             }
-            else
-            {
-                MessageBox.Show("Selecciona un usuario para eliminar.");
-            }
         }
+
 
         private void edit_Click(object sender, EventArgs e)
         {
@@ -137,7 +132,6 @@ namespace tpv
                 return;
             }
 
-            // Muestra un mensaje de confirmación
             var result = MessageBox.Show("¿Estás seguro de que deseas editar este usuario?", "Confirmar edición", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
@@ -152,7 +146,6 @@ namespace tpv
                     id_rol = selectedItem.Id.ToString();
                 }
 
-                // Realiza las validaciones antes de actualizar
                 if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(password))
                 {
                     MessageBox.Show("Ingresa el nombre o contraseña");
@@ -165,12 +158,10 @@ namespace tpv
                     return;
                 }
 
-                // Convertir 'id' a int, en lugar de pasarlo como string
                 int idUsuario;
                 if (int.TryParse(dataGridView1.CurrentRow.Cells["id"].Value.ToString(), out idUsuario))
                 {
-                    // Realiza la actualización del usuario en la base de datos
-                    conexion.EditarUsuarioDB(idUsuario, usuario, password, id_rol);
+                    conexion.EditarUsuario(idUsuario, usuario, password, id_rol);
                 }
                 else
                 {
@@ -178,7 +169,6 @@ namespace tpv
                     return;
                 }
 
-                // Actualiza el DataGridView
                 CargarUsuarios();
             }
         }

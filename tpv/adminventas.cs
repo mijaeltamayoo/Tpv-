@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace tpv
 {
@@ -108,6 +109,7 @@ namespace tpv
 
         private void CargarTabla()
         {
+
             dataGridView1.Columns.Add("Articulo", "Artículo");
             dataGridView1.Columns.Add("Precio", "Precio");
             dataGridView1.Columns.Add("Cantidad", "Cant.");
@@ -136,9 +138,9 @@ namespace tpv
         private void check_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(text_producto.Text) &&
-        !string.IsNullOrEmpty(text_precio.Text) &&
-        !string.IsNullOrEmpty(text_cantidad.Text) &&
-        int.TryParse(text_cantidad.Text, out int cantidad))
+                !string.IsNullOrEmpty(text_precio.Text) &&
+                !string.IsNullOrEmpty(text_cantidad.Text) &&
+                int.TryParse(text_cantidad.Text, out int cantidad))
             {
                 string nombreProducto = text_producto.Text;
                 decimal precio = decimal.Parse(text_precio.Text, System.Globalization.NumberStyles.Currency);
@@ -150,13 +152,61 @@ namespace tpv
                 text_producto.Clear();
                 text_precio.Clear();
                 text_cantidad.Clear();
-            }
-            else
-            {
-                MessageBox.Show("Por favor, ingrese una cantidad válida.");
+                ActualizarTotal();
             }
         }
 
-      
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+                text_producto.Text = dataGridView1.CurrentRow.Cells["Articulo"].Value.ToString();
+                text_precio.Text = dataGridView1.CurrentRow.Cells["Precio"].Value.ToString();
+                text_cantidad.Text = dataGridView1.CurrentRow.Cells["Cantidad"].Value.ToString();
+            }
+
+        }
+
+        private void cross_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+                ActualizarTotal();
+
+            }
+        }
+
+
+        private void edit_Click(object sender, EventArgs e)
+        {
+            decimal precio = decimal.Parse(text_precio.Text, System.Globalization.NumberStyles.Currency);
+            int cantidad = int.Parse(text_cantidad.Text);
+            decimal importe = precio * cantidad;
+
+            dataGridView1.CurrentRow.Cells["Articulo"].Value = text_producto.Text;
+            dataGridView1.CurrentRow.Cells["Precio"].Value = precio;
+            dataGridView1.CurrentRow.Cells["Cantidad"].Value = cantidad;
+            dataGridView1.CurrentRow.Cells["Importe"].Value = importe;
+
+            text_producto.Clear();
+            text_precio.Clear();
+            text_cantidad.Clear();
+            ActualizarTotal();
+
+        }
+
+        private void ActualizarTotal()
+        {
+            decimal total = 0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                total += Convert.ToDecimal(row.Cells["Importe"].Value);
+            }
+            text_total.Text = total.ToString("C2");
+        }
+
+
+
     }
 }

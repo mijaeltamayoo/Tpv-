@@ -30,8 +30,8 @@ namespace tpv
                 }
                 else if (tipo == "usuario")
                 {
-                    MessageBox.Show("Bienvenido, Usuario.");
-                    // Aquí puedes abrir el formulario para usuarios regulares o redirigir al usuario
+                    usuarioventas usuarioventas = new usuarioventas();
+                    usuarioventas.Show();
                 }
             }
             else
