@@ -33,6 +33,13 @@
             this.reservar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.mesa1 = new System.Windows.Forms.Button();
+            this.mesa2 = new System.Windows.Forms.Button();
+            this.mesa4 = new System.Windows.Forms.Button();
+            this.mesa5 = new System.Windows.Forms.Button();
+            this.mesa3 = new System.Windows.Forms.Button();
+            this.mesa6 = new System.Windows.Forms.Button();
+            this.mesa7 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -86,12 +93,82 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // mesa1
+            // 
+            this.mesa1.Location = new System.Drawing.Point(235, 106);
+            this.mesa1.Name = "mesa1";
+            this.mesa1.Size = new System.Drawing.Size(127, 63);
+            this.mesa1.TabIndex = 12;
+            this.mesa1.Text = "Mesa 1";
+            this.mesa1.UseVisualStyleBackColor = true;
+            // 
+            // mesa2
+            // 
+            this.mesa2.Location = new System.Drawing.Point(412, 106);
+            this.mesa2.Name = "mesa2";
+            this.mesa2.Size = new System.Drawing.Size(127, 63);
+            this.mesa2.TabIndex = 13;
+            this.mesa2.Text = "Mesa 2";
+            this.mesa2.UseVisualStyleBackColor = true;
+            // 
+            // mesa4
+            // 
+            this.mesa4.Location = new System.Drawing.Point(235, 219);
+            this.mesa4.Name = "mesa4";
+            this.mesa4.Size = new System.Drawing.Size(127, 63);
+            this.mesa4.TabIndex = 14;
+            this.mesa4.Text = "Mesa 4";
+            this.mesa4.UseVisualStyleBackColor = true;
+            // 
+            // mesa5
+            // 
+            this.mesa5.Location = new System.Drawing.Point(412, 219);
+            this.mesa5.Name = "mesa5";
+            this.mesa5.Size = new System.Drawing.Size(127, 63);
+            this.mesa5.TabIndex = 15;
+            this.mesa5.Text = "Mesa 5";
+            this.mesa5.UseVisualStyleBackColor = true;
+            // 
+            // mesa3
+            // 
+            this.mesa3.Location = new System.Drawing.Point(584, 106);
+            this.mesa3.Name = "mesa3";
+            this.mesa3.Size = new System.Drawing.Size(127, 63);
+            this.mesa3.TabIndex = 16;
+            this.mesa3.Text = "Mesa 3";
+            this.mesa3.UseVisualStyleBackColor = true;
+            // 
+            // mesa6
+            // 
+            this.mesa6.Location = new System.Drawing.Point(584, 219);
+            this.mesa6.Name = "mesa6";
+            this.mesa6.Size = new System.Drawing.Size(127, 63);
+            this.mesa6.TabIndex = 17;
+            this.mesa6.Text = "Mesa 6";
+            this.mesa6.UseVisualStyleBackColor = true;
+            // 
+            // mesa7
+            // 
+            this.mesa7.Location = new System.Drawing.Point(412, 326);
+            this.mesa7.Name = "mesa7";
+            this.mesa7.Size = new System.Drawing.Size(127, 63);
+            this.mesa7.TabIndex = 18;
+            this.mesa7.Text = "Mesa 7";
+            this.mesa7.UseVisualStyleBackColor = true;
+            // 
             // usuarioreservacs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::tpv.Properties.Resources.background1;
             this.ClientSize = new System.Drawing.Size(872, 463);
+            this.Controls.Add(this.mesa7);
+            this.Controls.Add(this.mesa6);
+            this.Controls.Add(this.mesa3);
+            this.Controls.Add(this.mesa5);
+            this.Controls.Add(this.mesa4);
+            this.Controls.Add(this.mesa2);
+            this.Controls.Add(this.mesa1);
             this.Controls.Add(this.panel1);
             this.Name = "usuarioreservacs";
             this.Text = "usuarioreservacs";
@@ -107,5 +184,12 @@
         private System.Windows.Forms.Button reservar;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button mesa1;
+        private System.Windows.Forms.Button mesa2;
+        private System.Windows.Forms.Button mesa4;
+        private System.Windows.Forms.Button mesa5;
+        private System.Windows.Forms.Button mesa3;
+        private System.Windows.Forms.Button mesa6;
+        private System.Windows.Forms.Button mesa7;
     }
 }
