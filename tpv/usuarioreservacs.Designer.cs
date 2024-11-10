@@ -101,6 +101,7 @@
             this.mesa1.TabIndex = 12;
             this.mesa1.Text = "Mesa 1";
             this.mesa1.UseVisualStyleBackColor = true;
+            this.mesa1.Click += new System.EventHandler(this.Mesa_Click);
             // 
             // mesa2
             // 

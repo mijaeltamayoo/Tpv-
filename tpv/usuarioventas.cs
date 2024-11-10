@@ -208,7 +208,7 @@ namespace tpv
 
         private void reservar_Click(object sender, EventArgs e)
         {
-            usuarioreserva usuarioreserva = new usuarioreserva();
+            usuarioreservacs usuarioreserva = new usuarioreservacs();
             usuarioreserva.Show();
         }
     }

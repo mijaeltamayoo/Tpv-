@@ -18,7 +18,7 @@ namespace tpv
         public Conexion()
         {
             //string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "database", "database_tpv.accdb");
-            string ruta = @"C:\Users\2dam3\source\repos\Tpv-\tpv\database\database_tpv.accdb";
+            string ruta = @"C:\Users\mijae\source\repos\Tpv-\tpv\database\database_tpv.accdb";
 
             con = new OleDbConnection($"Provider=Microsoft.ACE.OLEDB.16.0; Data Source={ruta};");
 
@@ -129,17 +129,19 @@ namespace tpv
             }
       
         }
-        public void EliminarUsuario(int id)
+        public int EliminarUsuario(int id)
         {
             AbrirConexion();
             string query = "DELETE FROM usuarios WHERE id = @id";
 
             using (OleDbCommand command = new OleDbCommand(query, con))
             {
-                command.Parameters.AddWithValue("@idUsuario", id);
-                command.ExecuteNonQuery();
+                command.Parameters.AddWithValue("@id", id);
+                int rowsAffected = command.ExecuteNonQuery();  // Devuelve el número de filas afectadas
+                return rowsAffected;
             }
         }
+
 
         public void EditarUsuario(int idUsuario, string usuario, string password, string idRol)
         {
@@ -347,6 +349,67 @@ namespace tpv
 
             return productos_categoria;
         }
+
+
+        public Dictionary<int, DateTime> ObtenerReservas()
+        {
+            AbrirConexion();
+            string query = "SELECT numero_mesa, fecha_reserva FROM reservas WHERE estado = 'Reservada'";
+            var reservas = new Dictionary<int, DateTime>();
+
+            using (OleDbCommand command = new OleDbCommand(query, con))
+            {
+                OleDbDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int numeroMesa = reader.GetInt32(0);
+                    DateTime fechaReserva = reader.GetDateTime(1);
+                    reservas.Add(numeroMesa, fechaReserva);
+                }
+            }
+
+            return reservas;
+        }
+
+        public bool EsMesaReservada(int numeroMesa)
+        {
+            AbrirConexion();
+            string query = "SELECT COUNT(*) FROM reservas WHERE numero_mesa = @numero_mesa AND estado = 'Reservada'";
+            using (OleDbCommand command = new OleDbCommand(query, con))
+            {
+                command.Parameters.AddWithValue("@numero_mesa", numeroMesa);
+                int count = (int)command.ExecuteScalar();
+                return count > 0;
+            }
+        }
+
+        public void RealizarReserva(int numeroMesa, string nombreCliente, DateTime fechaReserva, TimeSpan horaReserva)
+        {
+            AbrirConexion();
+            string query = "INSERT INTO reservas (numero_mesa, nombre_cliente, fecha_reserva, hora_reserva) " +
+                           "VALUES (@numero_mesa, @nombre_cliente, @fecha_reserva, @hora_reserva)";
+
+            using (OleDbCommand command = new OleDbCommand(query, con))
+            {
+                command.Parameters.AddWithValue("@numero_mesa", numeroMesa);
+                command.Parameters.AddWithValue("@nombre_cliente", nombreCliente);
+                command.Parameters.AddWithValue("@fecha_reserva", fechaReserva);
+                command.Parameters.AddWithValue("@hora_reserva", horaReserva);
+
+                try
+                {
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Reserva realizada con éxito.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al realizar la reserva: " + ex.Message);
+                }
+            }
+        }
+
+
+
 
 
     }

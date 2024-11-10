@@ -109,16 +109,27 @@ namespace tpv
         {
             if (dataGridView1.CurrentRow != null)
             {
-                string producto = dataGridView1.CurrentRow.Cells["Articulo"].Value.ToString();
-                DialogResult result = MessageBox.Show($"¿Estás seguro de que deseas eliminar este producto '{producto}'?",
+                int idUsuario = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value);
+                string usuario = dataGridView1.CurrentRow.Cells["usuario"].Value.ToString();
+
+                DialogResult result = MessageBox.Show($"¿Estás seguro de que deseas eliminar el usuario '{usuario}'?",
                                                       "Confirmar eliminación",
                                                       MessageBoxButtons.YesNo,
                                                       MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
-                    dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+                    int filasEliminadas = conexion.EliminarUsuario(idUsuario);
 
+                    if (filasEliminadas > 0)
+                    {
+                        MessageBox.Show("Usuario eliminado correctamente.");
+                        CargarUsuarios(); // Recarga los datos en el DataGridView para reflejar la eliminación
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar el usuario de la base de datos.");
+                    }
                 }
             }
         }

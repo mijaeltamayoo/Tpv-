@@ -36,3 +36,5 @@ C:\Users\2dam3\Source\Repos\Tpv-\tpv\obj\Debug\tpv.adminventas.resources
 C:\Users\2dam3\source\repos\Tpv-\tpv\obj\Debug\tpv.adminusuarios.resources
 C:\Users\mijae\source\repos\Tpv-\tpv\obj\Debug\tpv.adminusuarios.resources
 C:\Users\2dam3\Source\Repos\Tpv-\tpv\obj\Debug\tpv.usuarioventas.resources
+C:\Users\mijae\source\repos\Tpv-\tpv\obj\Debug\tpv.usuarioreservacs.resources
+C:\Users\mijae\source\repos\Tpv-\tpv\obj\Debug\tpv.usuarioventas.resources
