@@ -16,24 +16,26 @@ namespace tpv
         }
 
         // Método para cargar el estado de las mesas (reservada o disponible)
+        // Método para cargar el estado de las mesas (reservada o disponible)
+        // Cambia el método CargarEstadoMesas para usar el método ObtenerReservas de la clase Conexion
         private void CargarEstadoMesas()
         {
-            // Obtener todas las reservas de la base de datos para la fecha actual o futura
-            var reservas = conexion.ObtenerReservas();
+            // Usa la instancia de conexion para llamar a ObtenerReservas
+            List<int> mesasReservadas = conexion.ObtenerReservas(); // Llama a ObtenerReservas desde la clase Conexion
 
-            // Recorrer todos los botones de mesas y verificar si están reservadas
             foreach (Control control in this.Controls)
             {
                 if (control is Button mesaButton)
                 {
-                    int numeroMesa = int.Parse(mesaButton.Name.Replace("mesa", "")); // Extrae el número de la mesa
-                    bool mesaReservada = reservas.Contains(numeroMesa);
-
-                    // Si la mesa está reservada, ponerla en rojo, si no, en verde (disponible)
-                    mesaButton.BackColor = mesaReservada ? Color.Red : Color.Green;
+                    int numeroMesa = int.Parse(mesaButton.Name.Replace("mesa", ""));
+                    mesaButton.BackColor = mesasReservadas.Contains(numeroMesa) ? Color.Red : Color.Green;
                 }
             }
         }
+
+
+
+
 
         // Cargar las reservas al inicio del formulario
         private void usuarioreservacs_Load(object sender, EventArgs e)
@@ -106,18 +108,12 @@ namespace tpv
                 reservaForm.ShowDialog();
             }
         }
-
-        // Método que verifica si la mesa ya está reservada
         private bool EsMesaReservada(int numeroMesa)
         {
-            // Verificar si la mesa está reservada en la base de datos
             return conexion.EsMesaReservada(numeroMesa);
         }
-
-        // Método que realiza la reserva y guarda el número de la mesa
         private void RealizarReserva(int numeroMesa, string nombreCliente, DateTime fechaReserva, TimeSpan horaReserva)
         {
-            // Llamada al método de la clase Conexion para realizar la reserva
             conexion.RealizarReserva(numeroMesa, nombreCliente, fechaReserva, horaReserva);
         }
     }

@@ -18,8 +18,8 @@ namespace tpv
         public Conexion()
         {
             //string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "database", "database_tpv.accdb");
-            //string ruta = @"C:\Users\mijae\source\repos\Tpv-\tpv\database\database_tpv.accdb";
-            string ruta = @"C:\Users\2dam3\Source\Repos\Tpv-\tpv\database\database_tpv.accdb";
+            string ruta = @"C:\Users\mijae\source\repos\Tpv-\tpv\database\database_tpv.accdb";
+            //string ruta = @"C:\Users\2dam3\Source\Repos\Tpv-\tpv\database\database_tpv.accdb";
 
             con = new OleDbConnection($"Provider=Microsoft.ACE.OLEDB.16.0; Data Source={ruta};");
 
@@ -358,27 +358,46 @@ namespace tpv
             List<int> reservas = new List<int>();
             try
             {
-                AbrirConexion();
-                string query = "SELECT numero_mesa FROM reservas WHERE fecha_reserva >= @fechaHoy";
+                AbrirConexion(); // Método para abrir la conexión a la base de datos
+
+                // Consulta SQL para obtener las mesas reservadas para hoy o en el futuro
+                string query = "SELECT numero_mesa FROM reservas WHERE fecha_reserva >= ?";
+
                 using (OleDbCommand command = new OleDbCommand(query, con))
                 {
-                    command.Parameters.AddWithValue("@fechaHoy", DateTime.Now.Date);
+                    // Usamos la fecha actual, solo la parte de la fecha (sin la hora)
+                    DateTime fechaHoy = DateTime.Now.Date;
+                    Console.WriteLine($"Fecha actual: {fechaHoy.ToString("yyyy-MM-dd")}");
 
+                    // Asegúrate de que la fecha sea pasada como una cadena con formato adecuado para la base de datos
+                    command.Parameters.AddWithValue("?", fechaHoy.ToString("yyyy-MM-dd")); // Formato adecuado para fechas
+
+                    // Crear un OleDbDataReader para leer los resultados de la consulta
                     using (OleDbDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            reservas.Add(reader.GetInt32(0)); // Suponiendo que "numero_mesa" es la columna que contiene el número de la mesa
+                            int numeroMesa = reader.GetInt32(0); // Número de la mesa
+                            reservas.Add(numeroMesa);
                         }
                     }
                 }
             }
+            catch (OleDbException oleEx)
+            {
+                Console.WriteLine("Excepción de OleDb: " + oleEx.Message);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al obtener reservas: " + ex.Message);
+                Console.WriteLine("Error general: " + ex.Message);
             }
+
             return reservas;
         }
+
+
+
+
 
 
         public bool EsMesaReservada(int numeroMesa)
@@ -388,14 +407,23 @@ namespace tpv
             try
             {
                 AbrirConexion();
-                string query = "SELECT COUNT(*) FROM reservas WHERE numero_mesa = @numeroMesa AND Format(fecha_reserva, 'yyyy-mm-dd') >= @fechaActual";
+                // Consulta SQL simplificada
+                string query = "SELECT numero_mesa FROM reservas WHERE fecha_reserva >= ?";
                 using (OleDbCommand command = new OleDbCommand(query, con))
                 {
+                    // Parámetros para la consulta
                     command.Parameters.AddWithValue("@numeroMesa", numeroMesa);
-                    command.Parameters.AddWithValue("@fechaActual", DateTime.Now.Date.ToString("yyyy-MM-dd")); // Solo la parte de la fecha, en formato yyyy-MM-dd
+                    command.Parameters.AddWithValue("?", DateTime.Now.Date); // Asegúrate de que la fecha esté en el formato correcto
 
+                    DateTime fechaReserva = DateTime.Now; // O cualquier otra fecha que obtengas de la base de datos
+
+                    Console.WriteLine($"Fecha actual: {DateTime.Now.Date}");
+                    Console.WriteLine($"Fecha de reserva en la base de datos: {fechaReserva.ToString("yyyy-MM-dd")}");
+
+
+                    // Ejecutar la consulta y obtener el resultado
                     int count = (int)command.ExecuteScalar();
-                    reservada = (count > 0);
+                    reservada = (count > 0); // Si la mesa tiene una reserva, la marcamos como reservada
                 }
             }
             catch (Exception ex)
@@ -405,10 +433,6 @@ namespace tpv
 
             return reservada;
         }
-
-
-
-
 
         public void RealizarReserva(int numeroMesa, string nombreCliente, DateTime fechaReserva, TimeSpan horaReserva)
         {
@@ -447,7 +471,6 @@ namespace tpv
                 MessageBox.Show($"Error al realizar la reserva: {ex.Message}");
             }
         }
-
 
     }
 }
