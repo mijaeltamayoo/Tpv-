@@ -351,65 +351,101 @@ namespace tpv
         }
 
 
-        public Dictionary<int, DateTime> ObtenerReservas()
-        {
-            AbrirConexion();
-            string query = "SELECT numero_mesa, fecha_reserva FROM reservas WHERE estado = 'Reservada'";
-            var reservas = new Dictionary<int, DateTime>();
 
-            using (OleDbCommand command = new OleDbCommand(query, con))
+        public List<int> ObtenerReservas()
+        {
+            List<int> reservas = new List<int>();
+            try
             {
-                OleDbDataReader reader = command.ExecuteReader();
-                while (reader.Read())
+                AbrirConexion();
+                string query = "SELECT numero_mesa FROM reservas WHERE fecha_reserva >= @fechaHoy";
+                using (OleDbCommand command = new OleDbCommand(query, con))
                 {
-                    int numeroMesa = reader.GetInt32(0);
-                    DateTime fechaReserva = reader.GetDateTime(1);
-                    reservas.Add(numeroMesa, fechaReserva);
+                    command.Parameters.AddWithValue("@fechaHoy", DateTime.Now.Date);
+
+                    using (OleDbDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            reservas.Add(reader.GetInt32(0)); // Suponiendo que "numero_mesa" es la columna que contiene el número de la mesa
+                        }
+                    }
                 }
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener reservas: " + ex.Message);
+            }
             return reservas;
         }
 
+
         public bool EsMesaReservada(int numeroMesa)
         {
-            AbrirConexion();
-            string query = "SELECT COUNT(*) FROM reservas WHERE numero_mesa = @numero_mesa AND estado = 'Reservada'";
-            using (OleDbCommand command = new OleDbCommand(query, con))
+            bool reservada = false;
+
+            try
             {
-                command.Parameters.AddWithValue("@numero_mesa", numeroMesa);
-                int count = (int)command.ExecuteScalar();
-                return count > 0;
+                AbrirConexion();
+                string query = "SELECT COUNT(*) FROM reservas WHERE numero_mesa = @numeroMesa AND Format(fecha_reserva, 'yyyy-mm-dd') >= @fechaActual";
+                using (OleDbCommand command = new OleDbCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("@numeroMesa", numeroMesa);
+                    command.Parameters.AddWithValue("@fechaActual", DateTime.Now.Date.ToString("yyyy-MM-dd")); // Solo la parte de la fecha, en formato yyyy-MM-dd
+
+                    int count = (int)command.ExecuteScalar();
+                    reservada = (count > 0);
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+
+            return reservada;
         }
+
+
+
+
 
         public void RealizarReserva(int numeroMesa, string nombreCliente, DateTime fechaReserva, TimeSpan horaReserva)
         {
-            AbrirConexion();
-            string query = "INSERT INTO reservas (numero_mesa, nombre_cliente, fecha_reserva, hora_reserva) " +
-                           "VALUES (@numero_mesa, @nombre_cliente, @fecha_reserva, @hora_reserva)";
-
-            using (OleDbCommand command = new OleDbCommand(query, con))
+            try
             {
-                command.Parameters.AddWithValue("@numero_mesa", numeroMesa);
-                command.Parameters.AddWithValue("@nombre_cliente", nombreCliente);
-                command.Parameters.AddWithValue("@fecha_reserva", fechaReserva);
-                command.Parameters.AddWithValue("@hora_reserva", horaReserva);
+                AbrirConexion();  // Suponiendo que esto abre la conexión correctamente
 
-                try
+                // Consulta SQL de inserción
+                string query = "INSERT INTO reservas (numero_mesa, nombre_cliente, fecha_reserva, hora_reserva) " +
+                               "VALUES (@numeroMesa, @nombreCliente, @fechaReserva, @horaReserva)";
+
+                using (OleDbCommand command = new OleDbCommand(query, con))
                 {
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Reserva realizada con éxito.");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al realizar la reserva: " + ex.Message);
+                    // Agregar los parámetros correctamente
+                    command.Parameters.AddWithValue("@numeroMesa", numeroMesa);        // Agregar numeroMesa
+                    command.Parameters.AddWithValue("@nombreCliente", nombreCliente);  // Agregar nombreCliente
+                    command.Parameters.AddWithValue("@fechaReserva", fechaReserva);    // Agregar fechaReserva
+                    command.Parameters.AddWithValue("@horaReserva", horaReserva);      // Agregar horaReserva
+
+                    // Ejecutar la consulta
+                    int result = command.ExecuteNonQuery();
+
+                    // Verificar si se insertó correctamente
+                    if (result > 0)
+                    {
+                        MessageBox.Show($"La mesa {numeroMesa} ha sido reservada exitosamente.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hubo un problema al realizar la reserva.");
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al realizar la reserva: {ex.Message}");
+            }
         }
-
-
-
 
 
     }

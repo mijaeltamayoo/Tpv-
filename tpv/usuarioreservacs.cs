@@ -15,10 +15,10 @@ namespace tpv
             conexion = new Conexion(); // Instanciamos la clase Conexion
         }
 
-        // Cargar el estado de las mesas al iniciar la aplicación
+        // Método para cargar el estado de las mesas (reservada o disponible)
         private void CargarEstadoMesas()
         {
-            // Obtener todas las reservas (mesa y fecha) de la base de datos
+            // Obtener todas las reservas de la base de datos para la fecha actual o futura
             var reservas = conexion.ObtenerReservas();
 
             // Recorrer todos los botones de mesas y verificar si están reservadas
@@ -27,17 +27,10 @@ namespace tpv
                 if (control is Button mesaButton)
                 {
                     int numeroMesa = int.Parse(mesaButton.Name.Replace("mesa", "")); // Extrae el número de la mesa
-                    DateTime? fechaReserva = reservas.ContainsKey(numeroMesa) ? reservas[numeroMesa] : null;
+                    bool mesaReservada = reservas.Contains(numeroMesa);
 
-                    // Si la mesa está reservada para hoy o futuro, la ponemos en rojo
-                    if (fechaReserva.HasValue && fechaReserva.Value.Date >= DateTime.Now.Date)
-                    {
-                        mesaButton.BackColor = Color.Red;
-                    }
-                    else
-                    {
-                        mesaButton.BackColor = Color.Green; // Mesa disponible
-                    }
+                    // Si la mesa está reservada, ponerla en rojo, si no, en verde (disponible)
+                    mesaButton.BackColor = mesaReservada ? Color.Red : Color.Green;
                 }
             }
         }
@@ -61,9 +54,11 @@ namespace tpv
             else
             {
                 // Crear un formulario para ingresar los detalles de la reserva
-                Form reservaForm = new Form();
-                reservaForm.Text = $"Reservar Mesa {numeroMesa}";
-                reservaForm.Size = new Size(300, 300);
+                Form reservaForm = new Form
+                {
+                    Text = $"Reservar Mesa {numeroMesa}",
+                    Size = new Size(300, 300)
+                };
 
                 // Nombre del cliente
                 Label nombreLabel = new Label() { Text = "Nombre del Cliente:", Top = 20, Left = 10, Width = 150 };
@@ -91,8 +86,8 @@ namespace tpv
                     // Cierra el formulario de reserva
                     reservaForm.Close();
 
-                    // Cambia el color del botón para indicar que está reservada
-                    mesaButton.BackColor = Color.Red;
+                    // Actualiza el estado de las mesas
+                    CargarEstadoMesas();
 
                     // Muestra un mensaje de confirmación
                     MessageBox.Show($"La mesa {numeroMesa} ha sido reservada a nombre de {nombreCliente}.");
@@ -115,7 +110,7 @@ namespace tpv
         // Método que verifica si la mesa ya está reservada
         private bool EsMesaReservada(int numeroMesa)
         {
-            // Aquí debes verificar si la mesa ya está reservada en la base de datos.
+            // Verificar si la mesa está reservada en la base de datos
             return conexion.EsMesaReservada(numeroMesa);
         }
 
