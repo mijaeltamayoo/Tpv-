@@ -359,7 +359,7 @@ namespace tpv
             try
             {
                 AbrirConexion(); // Asegúrate de abrir la conexión antes de ejecutar el comando
-                string query = "SELECT numero_mesa FROM reservas WHERE fecha_reserva >= ?";
+                string query = "SELECT numero_mesa FROM reservas WHERE fecha_reserva = ?";
 
                 using (OleDbCommand command = new OleDbCommand(query, con))
                 {
@@ -384,38 +384,34 @@ namespace tpv
             return reservas;
         }
 
-        public bool EsMesaReservada(int numeroMesa)
+
+        public bool EsHoraReservada(int numeroMesa, DateTime fechaReserva, TimeSpan horaReserva)
         {
             bool reservada = false;
-
             try
             {
                 AbrirConexion();
+                // Usamos Format para asegurarnos de que la fecha esté en el formato correcto para Access
+                string query = "SELECT COUNT(*) FROM reservas WHERE numero_mesa = ? AND Format(fecha_reserva, 'yyyy-mm-dd') = ? AND hora_reserva = ?";
 
-                // Fecha actual sin hora (00:00 del día de hoy)
-                DateTime hoy = DateTime.Today;
-
-                // Modificar la consulta para que coincida exactamente con la fecha de hoy
-                string query = "SELECT COUNT(*) FROM reservas WHERE numero_mesa = ? AND DATE(fecha_reserva) = ?";
                 using (OleDbCommand command = new OleDbCommand(query, con))
                 {
-                    // Parámetro de número de mesa y la fecha de hoy
-                    command.Parameters.AddWithValue("?", numeroMesa);
-                    command.Parameters.AddWithValue("?", hoy);
+                    // Agregar parámetros en el orden correcto
+                    command.Parameters.AddWithValue("?", numeroMesa);               // Primer parámetro: numero_mesa
+                    command.Parameters.AddWithValue("?", fechaReserva.Date.ToString("yyyy-MM-dd"));  // Segundo parámetro: fecha_reserva (solo fecha)
+                    command.Parameters.AddWithValue("?", horaReserva);              // Tercer parámetro: hora_reserva
 
-                    // Ejecutar la consulta
-                    int count = (int)command.ExecuteScalar();
-                    reservada = (count > 0); // Si hay reservas para hoy, la mesa está reservada
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+                    reservada = (count > 0);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}");
+                MessageBox.Show("Error al verificar la hora de la reserva: " + ex.Message);
             }
 
             return reservada;
         }
-
 
 
 
