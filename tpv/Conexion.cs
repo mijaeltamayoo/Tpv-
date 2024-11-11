@@ -361,7 +361,7 @@ namespace tpv
                 AbrirConexion(); // Método para abrir la conexión a la base de datos
 
                 // Consulta SQL para obtener las mesas reservadas para hoy o en el futuro
-                string query = "SELECT numero_mesa FROM reservas WHERE fecha_reserva >= ?";
+                string query = "SELECT numero_mesa FROM reservas WHERE DATE(fecha_reserva) = ?";
 
                 using (OleDbCommand command = new OleDbCommand(query, con))
                 {
