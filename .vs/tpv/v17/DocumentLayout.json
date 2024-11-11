@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\usuarioreservacs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\usuarioreservacs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\usuarioreservacs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\usuarioreservacs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\usuarioreservacs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\usuarioreservacs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\adminusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,20 +58,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "usuarioreservacs.cs",
               "DocumentMoniker": "C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\usuarioreservacs.cs",
               "RelativeDocumentMoniker": "tpv\\usuarioreservacs.cs",
               "ToolTip": "C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\usuarioreservacs.cs",
               "RelativeToolTip": "tpv\\usuarioreservacs.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAA0wCIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwFEAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-10T14:27:18.045Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "usuarioreservacs.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\usuarioreservacs.cs",
               "RelativeDocumentMoniker": "tpv\\usuarioreservacs.cs",
@@ -89,7 +89,7 @@
               "RelativeDocumentMoniker": "tpv\\Conexion.cs",
               "ToolTip": "C:\\Users\\mijae\\source\\repos\\Tpv-\\tpv\\Conexion.cs",
               "RelativeToolTip": "tpv\\Conexion.cs",
-              "ViewState": "AgIAAGQBAAAAAAAAAAAYwHUBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHoBAAAAAAAAAAAqwIIBAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-30T15:07:18.092Z",
               "EditorCaption": ""

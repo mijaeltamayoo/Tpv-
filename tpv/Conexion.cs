@@ -358,47 +358,31 @@ namespace tpv
             List<int> reservas = new List<int>();
             try
             {
-                AbrirConexion(); // Método para abrir la conexión a la base de datos
-
-                // Consulta SQL para obtener las mesas reservadas para hoy o en el futuro
-                string query = "SELECT numero_mesa FROM reservas WHERE DATE(fecha_reserva) = ?";
+                AbrirConexion(); // Asegúrate de abrir la conexión antes de ejecutar el comando
+                string query = "SELECT numero_mesa FROM reservas WHERE fecha_reserva >= ?";
 
                 using (OleDbCommand command = new OleDbCommand(query, con))
                 {
-                    // Usamos la fecha actual, solo la parte de la fecha (sin la hora)
                     DateTime fechaHoy = DateTime.Now.Date;
-                    Console.WriteLine($"Fecha actual: {fechaHoy.ToString("yyyy-MM-dd")}");
+                    command.Parameters.AddWithValue("?", fechaHoy);
 
-                    // Asegúrate de que la fecha sea pasada como una cadena con formato adecuado para la base de datos
-                    command.Parameters.AddWithValue("?", fechaHoy.ToString("yyyy-MM-dd")); // Formato adecuado para fechas
-
-                    // Crear un OleDbDataReader para leer los resultados de la consulta
                     using (OleDbDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            int numeroMesa = reader.GetInt32(0); // Número de la mesa
+                            int numeroMesa = reader.GetInt32(0);
                             reservas.Add(numeroMesa);
                         }
                     }
                 }
             }
-            catch (OleDbException oleEx)
-            {
-                Console.WriteLine("Excepción de OleDb: " + oleEx.Message);
-            }
             catch (Exception ex)
             {
-                Console.WriteLine("Error general: " + ex.Message);
+                Console.WriteLine("Error: " + ex.Message);
             }
 
             return reservas;
         }
-
-
-
-
-
 
         public bool EsMesaReservada(int numeroMesa)
         {
@@ -407,23 +391,21 @@ namespace tpv
             try
             {
                 AbrirConexion();
-                // Consulta SQL simplificada
-                string query = "SELECT numero_mesa FROM reservas WHERE fecha_reserva >= ?";
+
+                // Fecha actual sin hora (00:00 del día de hoy)
+                DateTime hoy = DateTime.Today;
+
+                // Modificar la consulta para que coincida exactamente con la fecha de hoy
+                string query = "SELECT COUNT(*) FROM reservas WHERE numero_mesa = ? AND DATE(fecha_reserva) = ?";
                 using (OleDbCommand command = new OleDbCommand(query, con))
                 {
-                    // Parámetros para la consulta
-                    command.Parameters.AddWithValue("@numeroMesa", numeroMesa);
-                    command.Parameters.AddWithValue("?", DateTime.Now.Date); // Asegúrate de que la fecha esté en el formato correcto
+                    // Parámetro de número de mesa y la fecha de hoy
+                    command.Parameters.AddWithValue("?", numeroMesa);
+                    command.Parameters.AddWithValue("?", hoy);
 
-                    DateTime fechaReserva = DateTime.Now; // O cualquier otra fecha que obtengas de la base de datos
-
-                    Console.WriteLine($"Fecha actual: {DateTime.Now.Date}");
-                    Console.WriteLine($"Fecha de reserva en la base de datos: {fechaReserva.ToString("yyyy-MM-dd")}");
-
-
-                    // Ejecutar la consulta y obtener el resultado
+                    // Ejecutar la consulta
                     int count = (int)command.ExecuteScalar();
-                    reservada = (count > 0); // Si la mesa tiene una reserva, la marcamos como reservada
+                    reservada = (count > 0); // Si hay reservas para hoy, la mesa está reservada
                 }
             }
             catch (Exception ex)
@@ -433,6 +415,12 @@ namespace tpv
 
             return reservada;
         }
+
+
+
+
+
+
 
         public void RealizarReserva(int numeroMesa, string nombreCliente, DateTime fechaReserva, TimeSpan horaReserva)
         {
