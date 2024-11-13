@@ -1,0 +1,3 @@
+Artículo	Precio	Cantidad	Importe
+Hamburguesa Clasica	5,95	1	5,95
+Total: 595,00 €

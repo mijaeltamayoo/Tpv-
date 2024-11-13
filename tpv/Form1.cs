@@ -26,12 +26,14 @@ namespace tpv
                 {
                     adminform adminForm = new adminform();
                     adminForm.Show();
+                    this.Hide();
                     
                 }
                 else if (tipo == "usuario")
                 {
                     usuarioventas usuarioventas = new usuarioventas();
                     usuarioventas.Show();
+                    this.Hide();
                 }
             }
             else

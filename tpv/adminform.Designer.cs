@@ -173,7 +173,7 @@ namespace tpv
             this.panel2.Controls.Add(this.text_producto);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(644, 66);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(183, 322);
             this.panel2.TabIndex = 5;
@@ -213,7 +213,7 @@ namespace tpv
             // text_stock
             // 
             this.text_stock.Location = new System.Drawing.Point(16, 222);
-            this.text_stock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.text_stock.Margin = new System.Windows.Forms.Padding(2);
             this.text_stock.Name = "text_stock";
             this.text_stock.Size = new System.Drawing.Size(102, 20);
             this.text_stock.TabIndex = 5;
@@ -224,7 +224,7 @@ namespace tpv
             this.cross.BackgroundImage = global::tpv.Properties.Resources.cross;
             this.cross.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cross.Location = new System.Drawing.Point(136, 141);
-            this.cross.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cross.Margin = new System.Windows.Forms.Padding(2);
             this.cross.Name = "cross";
             this.cross.Size = new System.Drawing.Size(27, 27);
             this.cross.TabIndex = 10;
@@ -237,7 +237,7 @@ namespace tpv
             this.check.BackgroundImage = global::tpv.Properties.Resources.check;
             this.check.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.check.Location = new System.Drawing.Point(136, 94);
-            this.check.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.check.Margin = new System.Windows.Forms.Padding(2);
             this.check.Name = "check";
             this.check.Size = new System.Drawing.Size(27, 27);
             this.check.TabIndex = 9;
@@ -258,7 +258,7 @@ namespace tpv
             // text_precio
             // 
             this.text_precio.Location = new System.Drawing.Point(16, 99);
-            this.text_precio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.text_precio.Margin = new System.Windows.Forms.Padding(2);
             this.text_precio.Name = "text_precio";
             this.text_precio.Size = new System.Drawing.Size(102, 20);
             this.text_precio.TabIndex = 3;
@@ -277,7 +277,7 @@ namespace tpv
             // text_producto
             // 
             this.text_producto.Location = new System.Drawing.Point(16, 41);
-            this.text_producto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.text_producto.Margin = new System.Windows.Forms.Padding(2);
             this.text_producto.Name = "text_producto";
             this.text_producto.Size = new System.Drawing.Size(102, 20);
             this.text_producto.TabIndex = 1;

@@ -208,8 +208,96 @@ namespace tpv
 
         private void reservar_Click(object sender, EventArgs e)
         {
+            this.Close();
             usuarioreservacs usuarioreserva = new usuarioreservacs();
             usuarioreserva.Show();
         }
+
+        private void lista_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            usuariolistareservas usuariolistareservas = new usuariolistareservas();
+            usuariolistareservas.Show();
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form1 form = new Form1();
+            form.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Verificar si hay productos en la tabla
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay productos en la tabla.");
+                return;
+            }
+
+            // Ruta donde se guardará el archivo .txt
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ventas.txt");
+
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(filePath, false))
+                {
+                    // Escribir encabezados en el archivo
+                    writer.WriteLine("Artículo\tPrecio\tCantidad\tImporte");
+
+                    // Recorrer todas las filas de la tabla y escribir cada producto
+                    decimal total = 0; // Definir total como decimal para asegurarse de que se maneja correctamente
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        string articulo = row.Cells["Articulo"].Value.ToString();
+                        string precio = row.Cells["Precio"].Value.ToString();
+                        string cantidad = row.Cells["Cantidad"].Value.ToString();
+                        string importe = row.Cells["Importe"].Value.ToString();
+
+                        // Escribir en el archivo
+                        writer.WriteLine($"{articulo}\t{precio}\t{cantidad}\t{importe}");
+
+                        // Sumar al total, asegurándose de que importe se maneje como decimal
+                        total += Convert.ToDecimal(importe, System.Globalization.CultureInfo.InvariantCulture);
+
+                        // Obtener el productoId usando el nombre del producto
+                        DataTable producto = conexion.ObtenerProductoPorNombre(articulo);
+
+                        if (producto.Rows.Count > 0)
+                        {
+                            int productoId = Convert.ToInt32(producto.Rows[0]["id"]);
+                            int cantidadVendida = int.Parse(cantidad);
+
+                            // Llamar al método para actualizar el stock en la base de datos
+                            conexion.ActualizarStockVenta(productoId, cantidadVendida);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"No se encontró el producto '{articulo}' en la base de datos.");
+                        }
+                    }
+
+                    // Escribir el total al final del archivo con formato de moneda correcto
+                    writer.WriteLine($"Total: {total.ToString("C2", new System.Globalization.CultureInfo("es-ES"))}");
+
+
+                    // Confirmar que la venta se procesó correctamente
+                    MessageBox.Show("Venta registrada correctamente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al procesar la venta: " + ex.Message);
+            }
+        }
+
+
+
+
+
+
+
+
     }
 }

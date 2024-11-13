@@ -50,6 +50,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.listView2 = new System.Windows.Forms.ListView();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.exit = new System.Windows.Forms.Button();
+            this.lista = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -89,6 +91,7 @@
             this.button1.Size = new System.Drawing.Size(27, 27);
             this.button1.TabIndex = 13;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // text_total
             // 
@@ -224,7 +227,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.exit);
             this.panel1.Controls.Add(this.reservar);
+            this.panel1.Controls.Add(this.lista);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(2, 0);
@@ -302,6 +307,33 @@
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
+            // exit
+            // 
+            this.exit.BackgroundImage = global::tpv.Properties.Resources.exit1;
+            this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.exit.Location = new System.Drawing.Point(21, 506);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(59, 55);
+            this.exit.TabIndex = 17;
+            this.exit.UseVisualStyleBackColor = true;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
+            // 
+            // lista
+            // 
+            this.lista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lista.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.lista.BackColor = System.Drawing.Color.White;
+            this.lista.BackgroundImage = global::tpv.Properties.Resources.lista;
+            this.lista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.lista.Location = new System.Drawing.Point(21, 397);
+            this.lista.Name = "lista";
+            this.lista.Size = new System.Drawing.Size(59, 55);
+            this.lista.TabIndex = 16;
+            this.lista.UseVisualStyleBackColor = false;
+            this.lista.Click += new System.EventHandler(this.lista_Click);
+            // 
             // usuarioventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,5 +379,7 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button reservar;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.Button lista;
     }
 }

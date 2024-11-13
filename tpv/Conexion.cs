@@ -18,8 +18,8 @@ namespace tpv
         public Conexion()
         {
             //string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "database", "database_tpv.accdb");
-            string ruta = @"C:\Users\mijae\source\repos\Tpv-\tpv\database\database_tpv.accdb";
-            //string ruta = @"C:\Users\2dam3\Source\Repos\Tpv-\tpv\database\database_tpv.accdb";
+            //string ruta = @"C:\Users\mijae\source\repos\Tpv-\tpv\database\database_tpv.accdb";
+            string ruta = @"C:\Users\2dam3\Source\Repos\Tpv-\tpv\database\database_tpv.accdb";
 
             con = new OleDbConnection($"Provider=Microsoft.ACE.OLEDB.16.0; Data Source={ruta};");
 
@@ -358,7 +358,7 @@ namespace tpv
             List<int> reservas = new List<int>();
             try
             {
-                AbrirConexion(); // Asegúrate de abrir la conexión antes de ejecutar el comando
+                AbrirConexion(); 
                 string query = "SELECT numero_mesa FROM reservas WHERE fecha_reserva = ?";
 
                 using (OleDbCommand command = new OleDbCommand(query, con))
@@ -384,6 +384,36 @@ namespace tpv
             return reservas;
         }
 
+        public DataTable ObtenerTodasLasReservas()
+        {
+            DataTable reservas = new DataTable();
+
+            try
+            {
+                AbrirConexion();
+
+                DateTime fechaHoy = DateTime.Today;
+
+                string query = "SELECT * FROM reservas WHERE fecha_reserva >= ? ORDER BY fecha_reserva, hora_reserva";
+
+                using (OleDbCommand command = new OleDbCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("@fecha_reserva", fechaHoy);
+
+                    using (OleDbDataReader reader = command.ExecuteReader())
+                    {
+                        reservas.Load(reader);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+            return reservas;
+        }
+
 
         public bool EsHoraReservada(int numeroMesa, DateTime fechaReserva, TimeSpan horaReserva)
         {
@@ -391,15 +421,13 @@ namespace tpv
             try
             {
                 AbrirConexion();
-                // Usamos Format para asegurarnos de que la fecha esté en el formato correcto para Access
                 string query = "SELECT COUNT(*) FROM reservas WHERE numero_mesa = ? AND Format(fecha_reserva, 'yyyy-mm-dd') = ? AND hora_reserva = ?";
 
                 using (OleDbCommand command = new OleDbCommand(query, con))
                 {
-                    // Agregar parámetros en el orden correcto
-                    command.Parameters.AddWithValue("?", numeroMesa);               // Primer parámetro: numero_mesa
-                    command.Parameters.AddWithValue("?", fechaReserva.Date.ToString("yyyy-MM-dd"));  // Segundo parámetro: fecha_reserva (solo fecha)
-                    command.Parameters.AddWithValue("?", horaReserva);              // Tercer parámetro: hora_reserva
+                    command.Parameters.AddWithValue("?", numeroMesa);               
+                    command.Parameters.AddWithValue("?", fechaReserva.Date.ToString("yyyy-MM-dd"));  
+                    command.Parameters.AddWithValue("?", horaReserva);          
 
                     int count = Convert.ToInt32(command.ExecuteScalar());
                     reservada = (count > 0);
@@ -413,33 +441,24 @@ namespace tpv
             return reservada;
         }
 
-
-
-
-
-
         public void RealizarReserva(int numeroMesa, string nombreCliente, DateTime fechaReserva, TimeSpan horaReserva)
         {
             try
             {
-                AbrirConexion();  // Suponiendo que esto abre la conexión correctamente
+                AbrirConexion();  
 
-                // Consulta SQL de inserción
                 string query = "INSERT INTO reservas (numero_mesa, nombre_cliente, fecha_reserva, hora_reserva) " +
                                "VALUES (@numeroMesa, @nombreCliente, @fechaReserva, @horaReserva)";
 
                 using (OleDbCommand command = new OleDbCommand(query, con))
                 {
-                    // Agregar los parámetros correctamente
-                    command.Parameters.AddWithValue("@numeroMesa", numeroMesa);        // Agregar numeroMesa
-                    command.Parameters.AddWithValue("@nombreCliente", nombreCliente);  // Agregar nombreCliente
-                    command.Parameters.AddWithValue("@fechaReserva", fechaReserva);    // Agregar fechaReserva
-                    command.Parameters.AddWithValue("@horaReserva", horaReserva);      // Agregar horaReserva
+                    command.Parameters.AddWithValue("@numeroMesa", numeroMesa);        
+                    command.Parameters.AddWithValue("@nombreCliente", nombreCliente);  
+                    command.Parameters.AddWithValue("@fechaReserva", fechaReserva);    
+                    command.Parameters.AddWithValue("@horaReserva", horaReserva);      
 
-                    // Ejecutar la consulta
                     int result = command.ExecuteNonQuery();
 
-                    // Verificar si se insertó correctamente
                     if (result > 0)
                     {
                         MessageBox.Show($"La mesa {numeroMesa} ha sido reservada exitosamente.");
@@ -455,6 +474,226 @@ namespace tpv
                 MessageBox.Show($"Error al realizar la reserva: {ex.Message}");
             }
         }
+
+        public int EliminarReserva(int id)
+        {
+            AbrirConexion();
+            string query = "DELETE FROM reservas WHERE id = @id";
+
+            using (OleDbCommand command = new OleDbCommand(query, con))
+            {
+                command.Parameters.AddWithValue("@id", id);
+                int rowsAffected = command.ExecuteNonQuery();  
+                return rowsAffected;
+            }
+        }
+
+        public void EditarReserva(int idReserva, int numeroMesa, string nombreCliente, DateTime fechaReserva, TimeSpan horaReserva)
+        {
+            try
+            {
+                AbrirConexion();
+
+                // Modificación de la consulta para actualizar fecha y hora por separado
+                string query = "UPDATE reservas SET numero_mesa = @numeroMesa, nombre_cliente = @nombreCliente, fecha_reserva = @fechaReserva, hora_reserva = @horaReserva WHERE id = @idReserva";
+
+                using (OleDbCommand command = new OleDbCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("@numeroMesa", numeroMesa);
+                    command.Parameters.AddWithValue("@nombreCliente", nombreCliente);
+                    command.Parameters.AddWithValue("@fechaReserva", fechaReserva.Date); // Solo la fecha
+                    command.Parameters.AddWithValue("@horaReserva", horaReserva);       // Solo la hora
+                    command.Parameters.AddWithValue("@idReserva", idReserva);
+
+                    int result = command.ExecuteNonQuery();
+
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Reserva actualizada exitosamente.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo actualizar la reserva.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar la reserva: " + ex.Message);
+            }
+        }
+
+        public bool MesaYaReservada(int numeroMesa, DateTime fechaReserva, TimeSpan horaReserva)
+        {
+            bool found = false;
+
+            try
+            {
+                AbrirConexion();
+
+                string query = "SELECT COUNT(*) FROM reservas WHERE numero_mesa = ? AND fecha_reserva = ? AND hora_reserva = ?";
+
+                using (OleDbCommand command = new OleDbCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("?", numeroMesa);
+                    command.Parameters.AddWithValue("?", fechaReserva.Date); // Asegurarse de que solo la fecha se pasa
+                    command.Parameters.AddWithValue("?", horaReserva);
+
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+                    found = (count > 0);
+                }
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show("Error en la base de datos: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+            return found;
+        }
+
+        private bool stockActualizado = false;
+
+        public void ActualizarStockProducto(int productoId, int cantidadVendida)
+        {
+            try
+            {
+                // Mostrar los valores de los parámetros antes de la ejecución
+                MessageBox.Show($"ProductoId: {productoId}, CantidadVendida: {cantidadVendida}");
+
+                AbrirConexion();
+
+                // Consulta SQL
+                string query = "UPDATE productos SET stock = stock - ? WHERE id = ?";
+
+                using (OleDbCommand command = new OleDbCommand(query, con))
+                {
+                    // Usar parámetros sin '@'
+                    command.Parameters.AddWithValue("?", cantidadVendida);
+                    command.Parameters.AddWithValue("?", productoId);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        public void ActualizarStockIngrediente(int ingredienteId, int cantidadVendida)
+        {
+            try
+            {
+                // Mostrar los valores de los parámetros antes de la ejecución
+                MessageBox.Show($"IngredienteId: {ingredienteId}, CantidadVendida: {cantidadVendida}");
+
+                AbrirConexion();
+
+                // Consulta SQL
+                string query = "UPDATE ingredientes SET stock = stock - ? WHERE id = ?";
+
+                using (OleDbCommand command = new OleDbCommand(query, con))
+                {
+                    // Usar parámetros sin '@'
+                    command.Parameters.AddWithValue("?", cantidadVendida);
+                    command.Parameters.AddWithValue("?", ingredienteId);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+
+
+        public DataTable ObtenerIngredientesPorProducto(int productoId)
+        {
+            DataTable ingredientes = new DataTable();
+
+            string query = @"SELECT i.id, i.nombre, pi.cantidad
+                     FROM producto_ingredientes pi
+                     INNER JOIN ingredientes i ON pi.ingrediente_id = i.id
+                     WHERE pi.producto_id = @productoId";
+
+            using (OleDbCommand command = new OleDbCommand(query, con))
+            {
+                command.Parameters.AddWithValue("@productoId", productoId);
+
+                try
+                {
+                    AbrirConexion();
+
+                    using (OleDbDataReader reader = command.ExecuteReader())
+                    {
+                        ingredientes.Load(reader);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+
+            return ingredientes;
+        }
+
+        public void ActualizarStockVenta(int productoId, int cantidadVendida)
+        {
+            try
+            {
+                // Actualizar stock del producto
+                ActualizarStockProducto(productoId, cantidadVendida);
+
+                // Obtener ingredientes relacionados al producto
+                DataTable ingredientes = ObtenerIngredientesPorProducto(productoId);
+
+                // Actualizar el stock de los ingredientes
+                foreach (DataRow row in ingredientes.Rows)
+                {
+                    int ingredienteId = Convert.ToInt32(row["id"]);
+                    int cantidadIngrediente = Convert.ToInt32(row["cantidad"]);
+                    ActualizarStockIngrediente(ingredienteId, cantidadIngrediente * cantidadVendida);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar el stock: " + ex.Message);
+            }
+        }
+
+
+
+        public DataTable ObtenerProductoPorNombre(string nombreProducto)
+        {
+            DataTable producto = new DataTable();
+            string query = "SELECT id FROM productos WHERE nombre = @nombreProducto";
+
+            using (OleDbCommand command = new OleDbCommand(query, con))
+            {
+                command.Parameters.AddWithValue("@nombreProducto", nombreProducto);
+
+                try
+                {
+                    AbrirConexion();
+                    using (OleDbDataReader reader = command.ExecuteReader())
+                    {
+                        producto.Load(reader);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+
+            return producto;
+        }
+
 
     }
 }
