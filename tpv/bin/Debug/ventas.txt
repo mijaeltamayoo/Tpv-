@@ -1,3 +1,6 @@
-Artículo	Precio	Cantidad	Importe
-Hamburguesa Clasica	5,95	1	5,95
-Total: 595,00 €
+Artículo            Precio    Cantidad  Importe   
+--------------------------------------------------
+Coca Cola           1,50      5         7,50      
+Tarta de Queso      4,50      1         4,50      
+--------------------------------------------------
+Total:                                  12,00 €

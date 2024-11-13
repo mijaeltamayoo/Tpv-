@@ -18,8 +18,8 @@ namespace tpv
         public Conexion()
         {
             //string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "database", "database_tpv.accdb");
-            //string ruta = @"C:\Users\mijae\source\repos\Tpv-\tpv\database\database_tpv.accdb";
-            string ruta = @"C:\Users\2dam3\Source\Repos\Tpv-\tpv\database\database_tpv.accdb";
+            string ruta = @"C:\Users\mijae\source\repos\Tpv-\tpv\database\database_tpv.accdb";
+            //string ruta = @"C:\Users\2dam3\Source\Repos\Tpv-\tpv\database\database_tpv.accdb";
 
             con = new OleDbConnection($"Provider=Microsoft.ACE.OLEDB.16.0; Data Source={ruta};");
 

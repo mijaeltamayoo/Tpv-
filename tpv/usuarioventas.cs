@@ -243,23 +243,21 @@ namespace tpv
             {
                 using (StreamWriter writer = new StreamWriter(filePath, false))
                 {
-                    // Escribir encabezados en el archivo
-                    writer.WriteLine("Artículo\tPrecio\tCantidad\tImporte");
+                    // Escribir encabezados en el archivo con formato alineado
+                    writer.WriteLine("Artículo".PadRight(20) + "Precio".PadRight(10) + "Cantidad".PadRight(10) + "Importe".PadRight(10));
+                    writer.WriteLine(new string('-', 50)); // Línea separadora
 
-                    // Recorrer todas las filas de la tabla y escribir cada producto
-                    decimal total = 0; // Definir total como decimal para asegurarse de que se maneja correctamente
+                    decimal total = 0;
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         string articulo = row.Cells["Articulo"].Value.ToString();
                         string precio = row.Cells["Precio"].Value.ToString();
                         string cantidad = row.Cells["Cantidad"].Value.ToString();
-                        string importe = row.Cells["Importe"].Value.ToString();
+                        decimal importe = Convert.ToDecimal(row.Cells["Importe"].Value);
+                        total += importe;
 
-                        // Escribir en el archivo
-                        writer.WriteLine($"{articulo}\t{precio}\t{cantidad}\t{importe}");
-
-                        // Sumar al total, asegurándose de que importe se maneje como decimal
-                        total += Convert.ToDecimal(importe, System.Globalization.CultureInfo.InvariantCulture);
+                        // Escribir en el archivo con formato alineado
+                        writer.WriteLine(articulo.PadRight(20) + precio.PadRight(10) + cantidad.PadRight(10) + importe.ToString("0.00").PadRight(10));
 
                         // Obtener el productoId usando el nombre del producto
                         DataTable producto = conexion.ObtenerProductoPorNombre(articulo);
@@ -278,9 +276,9 @@ namespace tpv
                         }
                     }
 
-                    // Escribir el total al final del archivo con formato de moneda correcto
-                    writer.WriteLine($"Total: {total.ToString("C2", new System.Globalization.CultureInfo("es-ES"))}");
-
+                    // Escribir el total al final del archivo con formato de moneda alineado
+                    writer.WriteLine(new string('-', 50)); // Línea separadora
+                    writer.WriteLine("Total:".PadRight(40) + total.ToString("0.00").Replace(".", ",") + " €");
 
                     // Confirmar que la venta se procesó correctamente
                     MessageBox.Show("Venta registrada correctamente.");
@@ -291,6 +289,7 @@ namespace tpv
                 MessageBox.Show("Error al procesar la venta: " + ex.Message);
             }
         }
+
 
 
 
