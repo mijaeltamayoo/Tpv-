@@ -33,8 +33,11 @@ namespace tpv
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminform));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.exit = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,53 +56,87 @@ namespace tpv
             this.label3 = new System.Windows.Forms.Label();
             this.text_producto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.exit);
             this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(2, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(97, 446);
+            this.panel1.Size = new System.Drawing.Size(97, 528);
             this.panel1.TabIndex = 0;
             // 
-            // button3
+            // label8
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.BackgroundImage = global::tpv.Properties.Resources.image;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Location = new System.Drawing.Point(19, 245);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(59, 55);
-            this.button3.TabIndex = 6;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(33, 461);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Salir";
+            // 
+            // exit
+            // 
+            this.exit.BackgroundImage = global::tpv.Properties.Resources.exit1;
+            this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.exit.Location = new System.Drawing.Point(19, 394);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(59, 55);
+            this.exit.TabIndex = 16;
+            this.exit.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(19, 355);
+            this.button2.Location = new System.Drawing.Point(19, 263);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(59, 55);
             this.button2.TabIndex = 5;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(23, 330);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 17);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Usuarios";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(33, 202);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Stock";
+            // 
             // button1
             // 
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(19, 144);
+            this.button1.Location = new System.Drawing.Point(19, 138);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(59, 55);
             this.button1.TabIndex = 4;
@@ -150,12 +187,13 @@ namespace tpv
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(210, 95);
+            this.dataGridView2.Location = new System.Drawing.Point(146, 74);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(376, 273);
+            this.dataGridView2.Size = new System.Drawing.Size(471, 314);
             this.dataGridView2.TabIndex = 1;
+            this.dataGridView2.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView2_CellFormatting);
             this.dataGridView2.SelectionChanged += new System.EventHandler(this.dataGridView2_SelectionChanged);
             // 
             // panel2
@@ -172,10 +210,10 @@ namespace tpv
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.text_producto);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(644, 66);
+            this.panel2.Location = new System.Drawing.Point(646, 87);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(183, 322);
+            this.panel2.Size = new System.Drawing.Size(183, 282);
             this.panel2.TabIndex = 5;
             // 
             // label5
@@ -234,8 +272,9 @@ namespace tpv
             // check
             // 
             this.check.BackColor = System.Drawing.Color.White;
-            this.check.BackgroundImage = global::tpv.Properties.Resources.check;
+            this.check.BackgroundImage = global::tpv.Properties.Resources.add;
             this.check.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.check.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.check.Location = new System.Drawing.Point(136, 94);
             this.check.Margin = new System.Windows.Forms.Padding(2);
             this.check.Name = "check";
@@ -293,23 +332,49 @@ namespace tpv
             this.label2.TabIndex = 0;
             this.label2.Text = "Producto";
             // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(201, 47);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 6;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = global::tpv.Properties.Resources.filtro;
+            this.pictureBox2.Location = new System.Drawing.Point(170, 47);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Padding = new System.Windows.Forms.Padding(5);
+            this.pictureBox2.Size = new System.Drawing.Size(25, 21);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // adminform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(937, 448);
+            this.ClientSize = new System.Drawing.Size(886, 521);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.panel1);
             this.Name = "adminform";
             this.Text = "adminform";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -331,11 +396,16 @@ namespace tpv
         private TextBox text_producto;
         private TextBox text_stock;
         private Label label4;
-        private Button button3;
         private Button edit;
         private Button cross;
         private Button check;
         private Label label5;
         private ComboBox comboBox1;
+        private ComboBox comboBox2;
+        private PictureBox pictureBox2;
+        private Label label7;
+        private Label label6;
+        private Label label8;
+        private Button exit;
     }
 }

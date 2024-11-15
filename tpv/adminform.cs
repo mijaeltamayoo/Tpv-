@@ -10,53 +10,56 @@ namespace tpv
     {
 
         private Conexion conexion;
-       
+
 
         public adminform()
         {
             InitializeComponent();
             conexion = new Conexion();
-            CargarProductos();
+            CargarProductos();  // Cargar todos los productos inicialmente
             CargarCategorias();
             Limpiar();
         }
 
         private void CargarProductos()
         {
+            // Cargar todos los productos (sin filtro)
             DataTable productos = conexion.ObtenerProductos();
             dataGridView2.DataSource = productos;
 
+            // Configuración de las columnas
             dataGridView2.Columns["id"].Visible = false;
+            dataGridView2.Columns["imagen"].Visible = false;
             dataGridView2.Columns["nombre"].HeaderText = "Nombre";
             dataGridView2.Columns["precio"].HeaderText = "Precio";
             dataGridView2.Columns["stock"].HeaderText = "Stock";
-            dataGridView2.Columns["categoria"].HeaderText = "Categoría"; 
-            dataGridView2.Columns["imagen"].HeaderText = "Nombre de imagen";
+            dataGridView2.Columns["categoria"].HeaderText = "Categoría";
+            dataGridView2.Columns["precio"].DefaultCellStyle.Format = "C2";
+            dataGridView2.Columns["precio"].DefaultCellStyle.FormatProvider = System.Globalization.CultureInfo.CreateSpecificCulture("es-ES");
 
             dataGridView2.ClearSelection();
         }
+
+
         private void CargarCategorias()
         {
             DataTable categorias = conexion.ObtenerCategorias();
 
             if (categorias.Rows.Count > 0)
             {
-                comboBox1.DataSource = categorias;
-                comboBox1.DisplayMember = "nombre"; 
-                comboBox1.ValueMember = "id"; 
-            }
-            else
-            {
-                MessageBox.Show("No se encontraron categorías.");
+                comboBox1.DataSource = categorias.Copy();
+                comboBox1.DisplayMember = "nombre";
+                comboBox1.ValueMember = "id";
+
+                comboBox2.DataSource = categorias;
+                comboBox2.DisplayMember = "nombre";
+                comboBox2.ValueMember = "id";
+                comboBox2.SelectedIndex = -1;
+
             }
         }
 
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            adminventas ventas = new adminventas();
-            ventas.Show();
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -81,6 +84,23 @@ namespace tpv
             conexion.AgregarProductoaDB(nombre, precio, categoria_id, stock);
             CargarProductos();
         }
+
+        private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView2.Columns[e.ColumnIndex].Name == "stock")
+            {
+                if (e.Value != null && int.TryParse(e.Value.ToString(), out int stockValue))
+                {
+                    if (stockValue < 0)
+                    {
+                        e.Value = ""; 
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+        }
+
+
         private void dataGridView2_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView2.CurrentRow != null)
@@ -170,7 +190,29 @@ namespace tpv
             }
         }
 
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string categoriaId = comboBox2.SelectedValue?.ToString();
 
+            if (!string.IsNullOrEmpty(categoriaId))
+            {
+                // Filtrar los productos por la categoría seleccionada
+                DataTable productosFiltrados = conexion.ObtenerProductosPorCategoria(categoriaId);
+                dataGridView2.DataSource = productosFiltrados;
+            }
+            else
+            {
+                // Si no se selecciona categoría, cargar todos los productos
+                CargarProductos(); // Muestra todos los productos
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            // Cuando se hace clic en PictureBox2, eliminar el filtro y mostrar todos los productos
+            comboBox2.SelectedIndex = -1; // Desmarcar la categoría seleccionada
+            CargarProductos(); // Mostrar todos los productos
+        }
 
         private void Limpiar()
         {

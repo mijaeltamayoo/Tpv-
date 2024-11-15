@@ -30,9 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usuarioreservacs));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lista = new System.Windows.Forms.Button();
-            this.reservar = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mesa1 = new System.Windows.Forms.Button();
             this.mesa2 = new System.Windows.Forms.Button();
@@ -41,7 +38,14 @@
             this.mesa3 = new System.Windows.Forms.Button();
             this.mesa6 = new System.Windows.Forms.Button();
             this.mesa7 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
+            this.lista = new System.Windows.Forms.Button();
+            this.reservar = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +53,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.exit);
             this.panel1.Controls.Add(this.lista);
             this.panel1.Controls.Add(this.reservar);
@@ -58,49 +66,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(97, 678);
             this.panel1.TabIndex = 11;
-            // 
-            // lista
-            // 
-            this.lista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lista.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.lista.BackColor = System.Drawing.Color.White;
-            this.lista.BackgroundImage = global::tpv.Properties.Resources.lista;
-            this.lista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.lista.Location = new System.Drawing.Point(21, 364);
-            this.lista.Name = "lista";
-            this.lista.Size = new System.Drawing.Size(59, 55);
-            this.lista.TabIndex = 8;
-            this.lista.UseVisualStyleBackColor = false;
-            this.lista.Click += new System.EventHandler(this.lista_Click);
-            // 
-            // reservar
-            // 
-            this.reservar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.reservar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.reservar.BackColor = System.Drawing.Color.White;
-            this.reservar.BackgroundImage = global::tpv.Properties.Resources.mesa;
-            this.reservar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.reservar.Location = new System.Drawing.Point(21, 248);
-            this.reservar.Name = "reservar";
-            this.reservar.Size = new System.Drawing.Size(59, 55);
-            this.reservar.TabIndex = 7;
-            this.reservar.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.BackgroundImage = global::tpv.Properties.Resources.image;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Location = new System.Drawing.Point(21, 140);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(59, 55);
-            this.button3.TabIndex = 6;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // pictureBox1
             // 
@@ -184,23 +149,108 @@
             this.mesa7.UseVisualStyleBackColor = true;
             this.mesa7.Click += new System.EventHandler(this.Mesa_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(39, 556);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "Salir";
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(22, 417);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 30);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "Lista de reservas";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(31, 302);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 17);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Reservar";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(31, 184);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Venta";
+            // 
             // exit
             // 
             this.exit.BackgroundImage = global::tpv.Properties.Resources.exit1;
             this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.exit.Location = new System.Drawing.Point(21, 471);
+            this.exit.Location = new System.Drawing.Point(22, 488);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(59, 55);
-            this.exit.TabIndex = 19;
+            this.exit.TabIndex = 29;
             this.exit.UseVisualStyleBackColor = true;
             this.exit.Click += new System.EventHandler(this.exit_Click);
+            // 
+            // lista
+            // 
+            this.lista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lista.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.lista.BackColor = System.Drawing.Color.White;
+            this.lista.BackgroundImage = global::tpv.Properties.Resources.lista;
+            this.lista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.lista.Location = new System.Drawing.Point(22, 350);
+            this.lista.Name = "lista";
+            this.lista.Size = new System.Drawing.Size(59, 55);
+            this.lista.TabIndex = 27;
+            this.lista.UseVisualStyleBackColor = false;
+            this.lista.Click += new System.EventHandler(this.lista_Click);
+            // 
+            // reservar
+            // 
+            this.reservar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.reservar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.reservar.BackColor = System.Drawing.Color.White;
+            this.reservar.BackgroundImage = global::tpv.Properties.Resources.mesa;
+            this.reservar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.reservar.Location = new System.Drawing.Point(22, 233);
+            this.reservar.Name = "reservar";
+            this.reservar.Size = new System.Drawing.Size(59, 55);
+            this.reservar.TabIndex = 26;
+            this.reservar.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.BackgroundImage = global::tpv.Properties.Resources.image;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.Location = new System.Drawing.Point(22, 122);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(59, 55);
+            this.button3.TabIndex = 25;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // usuarioreservacs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::tpv.Properties.Resources.background1;
-            this.ClientSize = new System.Drawing.Size(873, 565);
+            this.ClientSize = new System.Drawing.Size(799, 598);
             this.Controls.Add(this.mesa7);
             this.Controls.Add(this.mesa6);
             this.Controls.Add(this.mesa3);
@@ -213,6 +263,7 @@
             this.Text = "usuarioreservacs";
             this.Load += new System.EventHandler(this.usuarioreservacs_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -221,8 +272,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button reservar;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button mesa1;
         private System.Windows.Forms.Button mesa2;
@@ -231,7 +280,13 @@
         private System.Windows.Forms.Button mesa3;
         private System.Windows.Forms.Button mesa6;
         private System.Windows.Forms.Button mesa7;
-        private System.Windows.Forms.Button lista;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.Button lista;
+        private System.Windows.Forms.Button reservar;
+        private System.Windows.Forms.Button button3;
     }
 }

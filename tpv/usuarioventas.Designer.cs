@@ -44,14 +44,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.exit = new System.Windows.Forms.Button();
+            this.lista = new System.Windows.Forms.Button();
             this.reservar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.listView2 = new System.Windows.Forms.ListView();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.exit = new System.Windows.Forms.Button();
-            this.lista = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -142,8 +146,9 @@
             // check
             // 
             this.check.BackColor = System.Drawing.Color.White;
-            this.check.BackgroundImage = global::tpv.Properties.Resources.check;
+            this.check.BackgroundImage = global::tpv.Properties.Resources.add;
             this.check.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.check.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.check.Location = new System.Drawing.Point(132, 52);
             this.check.Margin = new System.Windows.Forms.Padding(2);
             this.check.Name = "check";
@@ -227,15 +232,88 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.exit);
-            this.panel1.Controls.Add(this.reservar);
             this.panel1.Controls.Add(this.lista);
+            this.panel1.Controls.Add(this.reservar);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(2, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(97, 678);
             this.panel1.TabIndex = 10;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(36, 565);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "Salir";
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(19, 432);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 30);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Lista de reservas";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(28, 322);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 17);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Reservar";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(28, 207);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Venta";
+            // 
+            // exit
+            // 
+            this.exit.BackgroundImage = global::tpv.Properties.Resources.exit1;
+            this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.exit.Location = new System.Drawing.Point(19, 497);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(59, 55);
+            this.exit.TabIndex = 29;
+            this.exit.UseVisualStyleBackColor = true;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
+            // 
+            // lista
+            // 
+            this.lista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lista.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.lista.BackColor = System.Drawing.Color.White;
+            this.lista.BackgroundImage = global::tpv.Properties.Resources.lista;
+            this.lista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.lista.Location = new System.Drawing.Point(19, 365);
+            this.lista.Name = "lista";
+            this.lista.Size = new System.Drawing.Size(59, 55);
+            this.lista.TabIndex = 27;
+            this.lista.UseVisualStyleBackColor = false;
+            this.lista.Click += new System.EventHandler(this.lista_Click);
             // 
             // reservar
             // 
@@ -246,10 +324,10 @@
             this.reservar.BackColor = System.Drawing.Color.White;
             this.reservar.BackgroundImage = global::tpv.Properties.Resources.mesa;
             this.reservar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.reservar.Location = new System.Drawing.Point(21, 289);
+            this.reservar.Location = new System.Drawing.Point(19, 255);
             this.reservar.Name = "reservar";
             this.reservar.Size = new System.Drawing.Size(59, 55);
-            this.reservar.TabIndex = 7;
+            this.reservar.TabIndex = 26;
             this.reservar.UseVisualStyleBackColor = false;
             this.reservar.Click += new System.EventHandler(this.reservar_Click);
             // 
@@ -258,10 +336,10 @@
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.BackgroundImage = global::tpv.Properties.Resources.image;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Location = new System.Drawing.Point(21, 172);
+            this.button3.Location = new System.Drawing.Point(19, 145);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(59, 55);
-            this.button3.TabIndex = 6;
+            this.button3.TabIndex = 25;
             this.button3.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
@@ -307,33 +385,6 @@
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
-            // exit
-            // 
-            this.exit.BackgroundImage = global::tpv.Properties.Resources.exit1;
-            this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.exit.Location = new System.Drawing.Point(21, 506);
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(59, 55);
-            this.exit.TabIndex = 17;
-            this.exit.UseVisualStyleBackColor = true;
-            this.exit.Click += new System.EventHandler(this.exit_Click);
-            // 
-            // lista
-            // 
-            this.lista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lista.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.lista.BackColor = System.Drawing.Color.White;
-            this.lista.BackgroundImage = global::tpv.Properties.Resources.lista;
-            this.lista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.lista.Location = new System.Drawing.Point(21, 397);
-            this.lista.Name = "lista";
-            this.lista.Size = new System.Drawing.Size(59, 55);
-            this.lista.TabIndex = 16;
-            this.lista.UseVisualStyleBackColor = false;
-            this.lista.Click += new System.EventHandler(this.lista_Click);
-            // 
             // usuarioventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -350,6 +401,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -372,14 +424,18 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button reservar;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button exit;
         private System.Windows.Forms.Button lista;
+        private System.Windows.Forms.Button reservar;
+        private System.Windows.Forms.Button button3;
     }
 }

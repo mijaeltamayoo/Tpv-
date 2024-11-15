@@ -256,27 +256,30 @@ namespace tpv
         {
             DataTable productos = new DataTable();
 
-            //query para obtener el producto en donde la categoria_id sea igual a la categoria por parametro
-            string query = "SELECT id, nombre, precio, stock, categoria_id, imagen FROM Productos WHERE categoria_id = @categoriaId";
+            // Asegúrate de que la conexión está abierta
+            string query = "SELECT id, nombre, precio, stock, categoria_id, imagen FROM Productos WHERE categoria_id = ?";
 
-            //OleDbCommand nos permite ejecutar la query
+            // OleDbCommand nos permite ejecutar la query
             using (OleDbCommand command = new OleDbCommand(query, con))
             {
-                //Esta linea nos permite que se asocie la variable pasada en la funcion con la de la base de datos
-                command.Parameters.AddWithValue("@categoriaId", categoriaId);
+                // Usar ? como marcador de posición para los parámetros en Access
+                command.Parameters.AddWithValue("?", categoriaId); // Se usa "?" en lugar de @categoriaId
 
+                // Abrir la conexión si no está abierta
                 AbrirConexion();
 
-                //OleDbDataReader permite leer los datos 
+                // OleDbDataReader permite leer los datos 
                 using (OleDbDataReader reader = command.ExecuteReader())
                 {
-                    //carga los datos en la tabla productos
+                    // Carga los datos en la tabla productos
                     productos.Load(reader);
                 }
+
             }
 
             return productos;
         }
+
 
         public void AgregarProductoaDB(string nombre, string precio, string categoria_id,string stock)
         {

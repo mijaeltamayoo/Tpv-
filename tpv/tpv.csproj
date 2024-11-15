@@ -61,12 +61,6 @@
     <Compile Include="adminusuarios.Designer.cs">
       <DependentUpon>adminusuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="adminventas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="adminventas.Designer.cs">
-      <DependentUpon>adminventas.cs</DependentUpon>
-    </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -76,6 +70,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="usuariolistareservas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,22 +99,14 @@
     <EmbeddedResource Include="adminusuarios.resx">
       <DependentUpon>adminusuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="adminventas.resx">
-      <DependentUpon>adminventas.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="usuariolistareservas.resx">
       <DependentUpon>usuariolistareservas.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +150,8 @@
     <Content Include="images\categorias\hamburguesa.jpg" />
     <Content Include="images\categorias\postres.jpg" />
     <Content Include="images\categorias\salsas.jpg" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\filtro.png" />
     <None Include="Resources\lista.png" />
     <None Include="Resources\mesa.png" />
     <None Include="Resources\image-removebg-preview %284%29.png" />

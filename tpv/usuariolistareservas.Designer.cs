@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usuariolistareservas));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.exit = new System.Windows.Forms.Button();
             this.lista = new System.Windows.Forms.Button();
             this.reservar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -47,7 +48,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.text_mesa = new System.Windows.Forms.TextBox();
             this.numero_mesa = new System.Windows.Forms.Label();
-            this.exit = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -57,6 +61,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.exit);
             this.panel1.Controls.Add(this.lista);
             this.panel1.Controls.Add(this.reservar);
@@ -67,6 +75,17 @@
             this.panel1.Size = new System.Drawing.Size(97, 678);
             this.panel1.TabIndex = 12;
             // 
+            // exit
+            // 
+            this.exit.BackgroundImage = global::tpv.Properties.Resources.exit1;
+            this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.exit.Location = new System.Drawing.Point(20, 471);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(59, 55);
+            this.exit.TabIndex = 15;
+            this.exit.UseVisualStyleBackColor = true;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
+            // 
             // lista
             // 
             this.lista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -76,7 +95,7 @@
             this.lista.BackColor = System.Drawing.Color.White;
             this.lista.BackgroundImage = global::tpv.Properties.Resources.lista;
             this.lista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.lista.Location = new System.Drawing.Point(20, 355);
+            this.lista.Location = new System.Drawing.Point(20, 336);
             this.lista.Name = "lista";
             this.lista.Size = new System.Drawing.Size(59, 55);
             this.lista.TabIndex = 8;
@@ -91,7 +110,7 @@
             this.reservar.BackColor = System.Drawing.Color.White;
             this.reservar.BackgroundImage = global::tpv.Properties.Resources.mesa;
             this.reservar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.reservar.Location = new System.Drawing.Point(20, 239);
+            this.reservar.Location = new System.Drawing.Point(20, 221);
             this.reservar.Name = "reservar";
             this.reservar.Size = new System.Drawing.Size(59, 55);
             this.reservar.TabIndex = 7;
@@ -103,7 +122,7 @@
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.BackgroundImage = global::tpv.Properties.Resources.image;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Location = new System.Drawing.Point(20, 131);
+            this.button3.Location = new System.Drawing.Point(20, 121);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(59, 55);
             this.button3.TabIndex = 6;
@@ -202,8 +221,9 @@
             // check
             // 
             this.check.BackColor = System.Drawing.Color.White;
-            this.check.BackgroundImage = global::tpv.Properties.Resources.check;
+            this.check.BackgroundImage = global::tpv.Properties.Resources.add;
             this.check.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.check.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.check.Location = new System.Drawing.Point(132, 52);
             this.check.Margin = new System.Windows.Forms.Padding(2);
             this.check.Name = "check";
@@ -269,29 +289,61 @@
             this.numero_mesa.TabIndex = 0;
             this.numero_mesa.Text = "Numero de mesa";
             // 
-            // exit
+            // label1
             // 
-            this.exit.BackgroundImage = global::tpv.Properties.Resources.exit1;
-            this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.exit.Location = new System.Drawing.Point(20, 464);
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(59, 55);
-            this.exit.TabIndex = 15;
-            this.exit.UseVisualStyleBackColor = true;
-            this.exit.Click += new System.EventHandler(this.exit_Click);
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(29, 183);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Venta";
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(29, 290);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 17);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Reservar";
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(20, 403);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 30);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Lista de reservas";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(37, 539);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Salir";
             // 
             // usuariolistareservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::tpv.Properties.Resources.background1;
-            this.ClientSize = new System.Drawing.Size(880, 555);
+            this.ClientSize = new System.Drawing.Size(879, 582);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Name = "usuariolistareservas";
             this.Text = "usuariolistareservas";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -321,5 +373,9 @@
         private System.Windows.Forms.TextBox text_mesa;
         private System.Windows.Forms.Label numero_mesa;
         private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }

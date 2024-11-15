@@ -55,11 +55,6 @@ namespace tpv
             adminform.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            adminventas adminventas = new adminventas();
-            adminventas.Show();
-        }
 
         private void exit_Click(object sender, EventArgs e)
         {
