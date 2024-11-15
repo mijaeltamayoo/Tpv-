@@ -3,23 +3,27 @@
   "WorkspaceRootPath": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|c:\\users\\2dam3\\source\\repos\\tpv-\\tpv\\usuariolistareservas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\usuariolistareservas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|c:\\users\\2dam3\\source\\repos\\tpv-\\tpv\\usuarioreservacs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\usuarioreservacs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|c:\\users\\2dam3\\source\\repos\\tpv-\\tpv\\usuarioventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\usuarioventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|tpv||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|c:\\users\\2dam3\\source\\repos\\tpv-\\tpv\\usuarioventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\usuarioventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\usuarioventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\usuarioventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\usuarioreservacs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\usuarioreservacs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|c:\\users\\2dam3\\source\\repos\\tpv-\\tpv\\usuariolistareservas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|solutionrelative:tpv\\usuariolistareservas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{88B0221A-F561-48F6-8748-060C699098BE}|tpv\\tpv.csproj|c:\\users\\2dam3\\source\\repos\\tpv-\\tpv\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|a54ad834-9219-4aa6-b589-607af21c3e26"
@@ -32,15 +36,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "tpv",
-              "DocumentMoniker": "C:\\Users\\2dam3\\Source\\Repos\\Tpv-\\tpv\\tpv.csproj",
+              "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\tpv.csproj",
               "RelativeDocumentMoniker": "tpv\\tpv.csproj",
-              "ToolTip": "C:\\Users\\2dam3\\Source\\Repos\\Tpv-\\tpv\\tpv.csproj",
+              "ToolTip": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\tpv.csproj",
               "RelativeToolTip": "tpv\\tpv.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-11-01T12:12:53.816Z",
@@ -49,13 +53,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Conexion.cs",
               "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\Conexion.cs",
               "RelativeDocumentMoniker": "tpv\\Conexion.cs",
               "ToolTip": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\Conexion.cs",
               "RelativeToolTip": "tpv\\Conexion.cs",
-              "ViewState": "AgIAABwCAAAAAAAAAAAMwDACAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-12T11:26:35.086Z",
               "IsPinned": true,
@@ -64,6 +68,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "usuarioventas.cs",
+              "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\usuarioventas.cs",
+              "RelativeDocumentMoniker": "tpv\\usuarioventas.cs",
+              "ToolTip": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\usuarioventas.cs",
+              "RelativeToolTip": "tpv\\usuarioventas.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAIwCcBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T09:55:30.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "usuarioventas.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\usuarioventas.cs",
               "RelativeDocumentMoniker": "tpv\\usuarioventas.cs",
@@ -75,7 +92,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "usuarioreservacs.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\usuarioreservacs.cs",
               "RelativeDocumentMoniker": "tpv\\usuarioreservacs.cs",
@@ -87,7 +104,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "usuariolistareservas.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\2dam3\\source\\repos\\Tpv-\\tpv\\usuariolistareservas.cs",
               "RelativeDocumentMoniker": "tpv\\usuariolistareservas.cs",

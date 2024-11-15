@@ -1,5 +1,6 @@
 Artículo            Precio    Cantidad  Importe   
 --------------------------------------------------
-Hamburguesa Clasica 5,95      1         5,95      
+Hamburguesa Clasica	5,95	1	5,95
+Hamburguesa BBQ	7,50	1	7,50
 --------------------------------------------------
-Total:                                  5,95 €
+Total:                                  26,90 €

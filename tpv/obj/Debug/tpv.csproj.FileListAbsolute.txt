@@ -39,3 +39,4 @@ C:\Users\mijae\source\repos\Tpv-\tpv\obj\Debug\tpv.usuarioreservacs.resources
 C:\Users\mijae\source\repos\Tpv-\tpv\obj\Debug\tpv.usuarioventas.resources
 C:\Users\2dam3\Source\Repos\Tpv-\tpv\obj\Debug\tpv.usuarioreservacs.resources
 C:\Users\2dam3\source\repos\Tpv-\tpv\obj\Debug\tpv.usuariolistareservas.resources
+C:\Users\mijae\Source\Repos\Tpv-\tpv\obj\Debug\tpv.usuariolistareservas.resources

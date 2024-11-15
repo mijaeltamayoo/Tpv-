@@ -256,8 +256,11 @@ namespace tpv
                         decimal importe = Convert.ToDecimal(row.Cells["Importe"].Value);
                         total += importe;
 
-                        // Escribir en el archivo con formato alineado
-                        writer.WriteLine(articulo.PadRight(20) + precio.PadRight(10) + cantidad.PadRight(10) + importe.ToString("0.00").PadRight(10));
+                        // Escribir en el archivo
+                        writer.WriteLine($"{articulo}\t{precio}\t{cantidad}\t{importe}");
+
+                        // Sumar al total, asegurándose de que importe se maneje como decimal
+                        total += Convert.ToDecimal(importe, System.Globalization.CultureInfo.InvariantCulture);
 
                         // Obtener el productoId usando el nombre del producto
                         DataTable producto = conexion.ObtenerProductoPorNombre(articulo);
@@ -289,6 +292,12 @@ namespace tpv
                 MessageBox.Show("Error al procesar la venta: " + ex.Message);
             }
         }
+
+
+
+
+
+
 
 
     }
